@@ -9,6 +9,9 @@ dist/
 web-build/
 expo-env.d.ts
 
+# Stitch exports
+stitch/**/screen.png
+
 # Native
 .kotlin/
 *.orig.*
