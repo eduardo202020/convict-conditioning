@@ -5,22 +5,29 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AppButton } from '../../components/AppButton';
 import { AppHeader } from '../../components/AppHeader';
 import { Screen } from '../../components/Screen';
-import { getTodayDossier, type TodayDossier } from '../../db/today';
+import {
+  finishSession,
+  getOrCreateActiveSession,
+  logSetForExercise,
+  type ActiveSessionState,
+} from '../../db/session';
 import { HoyStackParamList } from '../../navigation/types';
 import { colors, spacing, typography } from '../../theme';
 
 type Props = NativeStackScreenProps<HoyStackParamList, 'ActiveSession'>;
 
 export function ActiveSessionScreen({ navigation }: Props) {
-  const [dossier, setDossier] = useState<TodayDossier | null>(null);
+  const [session, setSession] = useState<ActiveSessionState | null>(null);
   const [loading, setLoading] = useState(true);
+  const [busyExerciseId, setBusyExerciseId] = useState<number | null>(null);
+  const [closing, setClosing] = useState(false);
 
   useEffect(() => {
     let mounted = true;
 
-    getTodayDossier()
+    getOrCreateActiveSession()
       .then((data) => {
-        if (mounted) setDossier(data);
+        if (mounted) setSession(data);
       })
       .finally(() => {
         if (mounted) setLoading(false);
@@ -31,13 +38,34 @@ export function ActiveSessionScreen({ navigation }: Props) {
     };
   }, []);
 
+  async function handleLogSet(sessionExerciseId: number) {
+    setBusyExerciseId(sessionExerciseId);
+    try {
+      const updated = await logSetForExercise(sessionExerciseId);
+      setSession(updated);
+    } finally {
+      setBusyExerciseId(null);
+    }
+  }
+
+  async function handleFinish() {
+    if (!session) return;
+    setClosing(true);
+    try {
+      const summary = await finishSession(session.sessionId);
+      navigation.navigate('SessionSummary', { sessionId: summary.sessionId });
+    } finally {
+      setClosing(false);
+    }
+  }
+
   return (
     <Screen>
       <AppHeader
         eyebrow="SESION ACTIVA"
         title="REGISTRO DE TRABAJO"
         description={
-          dossier ? `${dossier.program.name}. Bloques del dia segun programa y paso actual.` : 'Cargando bloques del dia.'
+          session ? `${session.programName}. Bloques del dia segun programa y paso actual.` : 'Cargando bloques del dia.'
         }
       />
 
@@ -48,23 +76,32 @@ export function ActiveSessionScreen({ navigation }: Props) {
             <Text style={styles.loadingText}>Preparando sesion...</Text>
           </View>
         ) : null}
-        {dossier?.exercises.map((exercise, index) => (
-          <View key={`${exercise.movementSlug ?? exercise.movementName}-${exercise.position}`} style={styles.card}>
+        {session?.exercises.map((exercise, index) => (
+          <View key={exercise.sessionExerciseId} style={styles.card}>
             <Text style={styles.index}>BLOQUE {String(index + 1).padStart(2, '0')}</Text>
             <Text style={styles.title}>{exercise.movementName}</Text>
-            <Text style={styles.subtitle}>{exercise.stepName ?? 'Trabajo auxiliar'}</Text>
+            <Text style={styles.subtitle}>
+              {exercise.stepName}
+              {exercise.stepNumber ? ` · Paso ${exercise.stepNumber}` : ''}
+            </Text>
             <View style={styles.stats}>
               <View>
                 <Text style={styles.statLabel}>Objetivo</Text>
-                <Text style={styles.statValue}>{exercise.prescription ?? 'sin prescripcion'}</Text>
+                <Text style={styles.statValue}>{exercise.targetRaw ?? 'sin objetivo'}</Text>
               </View>
               <View>
-                <Text style={styles.statLabel}>Descanso</Text>
-                <Text style={styles.statValue}>90 SEC</Text>
+                <Text style={styles.statLabel}>Series</Text>
+                <Text style={styles.statValue}>
+                  {exercise.loggedSets}
+                  {exercise.targetSets ? ` / ${exercise.targetSets}` : ''}
+                </Text>
               </View>
             </View>
             <View style={styles.buttons}>
-              <AppButton label="REGISTRAR SERIE" onPress={() => {}} />
+              <AppButton
+                label={busyExerciseId === exercise.sessionExerciseId ? 'REGISTRANDO...' : 'REGISTRAR SERIE'}
+                onPress={() => handleLogSet(exercise.sessionExerciseId)}
+              />
               <AppButton label="VER GUIA" onPress={() => {}} variant="ghost" />
             </View>
           </View>
@@ -72,7 +109,7 @@ export function ActiveSessionScreen({ navigation }: Props) {
       </View>
 
       <View style={styles.footer}>
-        <AppButton label="CERRAR SESION" onPress={() => navigation.navigate('SessionSummary')} />
+        <AppButton label={closing ? 'CERRANDO...' : 'CERRAR SESION'} onPress={handleFinish} />
       </View>
     </Screen>
   );

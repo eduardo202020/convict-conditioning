@@ -17,7 +17,7 @@ export type MainTabParamList = {
 export type HoyStackParamList = {
   Today: undefined;
   ActiveSession: undefined;
-  SessionSummary: undefined;
+  SessionSummary: { sessionId: number };
 };
 
 export type ProgresoStackParamList = {
