@@ -3,7 +3,7 @@ import { ActivityIndicator, Image, Linking, Pressable, StyleSheet, Text, View } 
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import { getLocalExerciseImages } from '../../assets/exerciseImages';
+import { getLocalExerciseImages, getLocalImageSource } from '../../assets/exerciseImages';
 import { AppHeader } from '../../components/AppHeader';
 import { Screen } from '../../components/Screen';
 import { getStepDetail, type StepMedia } from '../../db/library';
@@ -15,7 +15,16 @@ type Props = NativeStackScreenProps<BibliotecaStackParamList, 'MediaViewer'>;
 export function MediaViewerScreen({ route }: Props) {
   const [media, setMedia] = useState<StepMedia[]>([]);
   const [loading, setLoading] = useState(true);
-  const localImages = getLocalExerciseImages(route.params.slug, route.params.stepNumber ?? 1);
+  const localImages =
+    media
+      .filter((item) => item.kind === 'local_image')
+      .map((item) => getLocalImageSource(item.uri))
+      .filter(Boolean) || [];
+  const fallbackImages = getLocalExerciseImages(route.params.slug, route.params.stepNumber ?? 1);
+  const galleryImages = localImages.length ? localImages : fallbackImages;
+  const externalMedia = media.filter(
+    (item) => !['local_image', 'generated_image_placeholder'].includes(item.kind),
+  );
 
   useEffect(() => {
     let mounted = true;
@@ -49,12 +58,12 @@ export function MediaViewerScreen({ route }: Props) {
             <ActivityIndicator color={colors.primary} />
             <Text style={styles.copy}>Cargando medios del paso...</Text>
           </>
-        ) : localImages.length || media.length ? (
+        ) : galleryImages.length || externalMedia.length ? (
           <>
-            {localImages.length ? (
+            {galleryImages.length ? (
               <View style={styles.localSection}>
                 <Text style={styles.sectionTitle}>Laminas locales</Text>
-                {localImages.map((imageSource, index) => (
+                {galleryImages.map((imageSource, index) => (
                   <View key={`local-${index}`} style={styles.localImageCard}>
                     <Image source={imageSource} style={styles.localImage} resizeMode="contain" />
                     <Text style={styles.localImageLabel}>Vista {index + 1}</Text>
@@ -63,10 +72,10 @@ export function MediaViewerScreen({ route }: Props) {
               </View>
             ) : null}
 
-            {media.length ? (
+            {externalMedia.length ? (
               <View style={styles.localSection}>
                 <Text style={styles.sectionTitle}>Referencias externas</Text>
-                {media.map((item) => (
+                {externalMedia.map((item) => (
                   <Pressable key={item.id} onPress={() => Linking.openURL(item.uri)} style={styles.mediaRow}>
                     <MaterialCommunityIcons
                       color={item.kind === 'video_guide' ? colors.primary : colors.tertiary}

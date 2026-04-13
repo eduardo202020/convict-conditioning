@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, Image, StyleSheet, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-import { getLocalExerciseImages } from '../../assets/exerciseImages';
+import { getLocalExerciseImages, getLocalImageSource } from '../../assets/exerciseImages';
 import { AppHeader } from '../../components/AppHeader';
 import { Screen } from '../../components/Screen';
 import { VideoCard } from '../../components/VideoCard';
@@ -38,16 +38,28 @@ export function StepDetailScreen({ navigation, route }: Props) {
     [detail],
   );
   const localImages = useMemo(
-    () =>
-      detail
+    () => {
+      const dbLocalImages =
+        detail?.media
+          .filter((media) => media.kind === 'local_image')
+          .map((media) => getLocalImageSource(media.uri))
+          .filter(Boolean) ?? [];
+
+      if (dbLocalImages.length) {
+        return dbLocalImages;
+      }
+
+      return detail
         ? getLocalExerciseImages(detail.movementSlug, detail.stepNumber)
         : route.params.stepNumber
           ? getLocalExerciseImages(route.params.slug, route.params.stepNumber)
-          : [],
+          : [];
+    },
     [detail, route.params.slug, route.params.stepNumber],
   );
   const externalGuideCount =
-    detail?.media.filter((media) => media.kind !== 'generated_image_placeholder').length ?? 0;
+    detail?.media.filter((media) => !['generated_image_placeholder', 'local_image'].includes(media.kind)).length ??
+    0;
 
   return (
     <Screen>

@@ -100,6 +100,27 @@ const exerciseImages: ExerciseImageMap = {
   },
 };
 
+exerciseImages['leg_raise'] = exerciseImages['leg-raise'];
+exerciseImages['handstand_pushup'] = exerciseImages['handstand-pushup'];
+
+const exerciseImageUriMap = Object.entries(exerciseImages).reduce<Record<string, ImageSourcePropType>>(
+  (accumulator, [movementSlug, steps]) => {
+    for (const [stepNumber, images] of Object.entries(steps)) {
+      images.forEach((imageSource, index) => {
+        const uri = `asset://images/${movementSlug}/step-${String(stepNumber).padStart(2, '0')}-${index + 1}.png`;
+        accumulator[uri] = imageSource;
+      });
+    }
+
+    return accumulator;
+  },
+  {},
+);
+
 export function getLocalExerciseImages(movementSlug: string, stepNumber: number) {
   return exerciseImages[movementSlug]?.[stepNumber] ?? [];
+}
+
+export function getLocalImageSource(uri: string) {
+  return exerciseImageUriMap[uri] ?? null;
 }
