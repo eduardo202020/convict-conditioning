@@ -3,6 +3,7 @@ import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppHeader } from '../../components/AppHeader';
+import { REQUIRED_AUTO_SUCCESS_SESSIONS } from '../../db/progression';
 import { Screen } from '../../components/Screen';
 import { getSessionSummary, type SessionSummary as SessionSummaryData } from '../../db/session';
 import { HoyStackParamList } from '../../navigation/types';
@@ -71,7 +72,7 @@ export function SessionSummaryScreen({ route }: Props) {
           <Text style={styles.metricNote}>
             {promotedMovements.length
               ? `Avance registrado en: ${promotedMovements.join(', ')}.`
-              : 'No hubo avance automatico en esta sesion.'}
+              : `No hubo avance automatico. La regla actual exige ${REQUIRED_AUTO_SUCCESS_SESSIONS} sesiones completas del mismo paso.`}
           </Text>
         </View>
       </View>

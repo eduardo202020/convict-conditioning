@@ -90,6 +90,10 @@ export function ProgressOverviewScreen({ navigation }: Props) {
             <View style={styles.barTrack}>
               <View style={[styles.barFill, { width: `${movement.completionRatio * 100}%` }]} />
             </View>
+            <Text style={styles.goal}>
+              Progreso automatico: {Math.min(movement.autoProgressSuccessCount, movement.autoProgressRequiredCount)}/
+              {movement.autoProgressRequiredCount} sesiones validas
+            </Text>
             <Text style={styles.goal}>Objetivo siguiente: {movement.nextTarget ?? 'Paso maestro alcanzado'}</Text>
           </Pressable>
         ))}

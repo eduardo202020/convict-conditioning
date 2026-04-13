@@ -1,6 +1,7 @@
 import type { SQLiteDatabase } from 'expo-sqlite';
 
 import { ensurePrebuiltDatabase, openDb } from '../../data/cellstrength_db/ts/initDb';
+import { REQUIRED_AUTO_SUCCESS_SESSIONS } from './progression';
 
 export type ProgressMovementSummary = {
   movementId: number;
@@ -10,6 +11,8 @@ export type ProgressMovementSummary = {
   currentStepName: string;
   nextTarget: string | null;
   completionRatio: number;
+  autoProgressSuccessCount: number;
+  autoProgressRequiredCount: number;
 };
 
 export type ProgressMovementDetail = {
@@ -26,6 +29,8 @@ export type ProgressMovementDetail = {
   completionRatio: number;
   latestProgressionAt: string | null;
   latestProgressionReason: string | null;
+  autoProgressSuccessCount: number;
+  autoProgressRequiredCount: number;
 };
 
 export type RecentSessionSummary = {
@@ -69,6 +74,7 @@ export async function getProgressSummary(): Promise<ProgressMovementSummary[]> {
     currentStepNumber: number;
     currentStepName: string;
     nextTarget: string | null;
+    autoProgressSuccessCount: number;
   }>(
     `
       SELECT
@@ -77,7 +83,8 @@ export async function getProgressSummary(): Promise<ProgressMovementSummary[]> {
         m.name AS name,
         COALESCE(current_step.step_number, first_step.step_number) AS currentStepNumber,
         COALESCE(current_step.name, first_step.name) AS currentStepName,
-        next_target.raw_target AS nextTarget
+        next_target.raw_target AS nextTarget,
+        COALESCE(success_window.completedCount, 0) AS autoProgressSuccessCount
       FROM movement m
       LEFT JOIN user_movement_level uml ON uml.movement_id = m.id
       LEFT JOIN step current_step ON current_step.id = uml.current_step_id
@@ -95,6 +102,54 @@ export async function getProgressSummary(): Promise<ProgressMovementSummary[]> {
       LEFT JOIN step_target next_target
         ON next_target.step_id = next_step.id
        AND next_target.scheme_id = 1
+      LEFT JOIN (
+        SELECT
+          current_state.movementId AS movementId,
+          COUNT(*) AS completedCount
+        FROM (
+          SELECT
+            m.id AS movementId,
+            COALESCE(current_step.id, first_step.id) AS currentStepId,
+            COALESCE((
+              SELECT MAX(pe.created_at)
+              FROM progression_event pe
+              WHERE pe.movement_id = m.id
+            ), '') AS lastProgressionAt
+          FROM movement m
+          LEFT JOIN user_movement_level uml ON uml.movement_id = m.id
+          LEFT JOIN step current_step ON current_step.id = uml.current_step_id
+          LEFT JOIN step first_step
+            ON first_step.id = (
+              SELECT s.id
+              FROM step s
+              WHERE s.movement_id = m.id
+              ORDER BY s.step_number
+              LIMIT 1
+            )
+        ) current_state
+        INNER JOIN (
+          SELECT
+            s.id AS sessionId,
+            stp.movement_id AS movementId,
+            se.step_id AS stepId,
+            COALESCE(s.finished_at, s.started_at) AS closedAt,
+            COALESCE(COUNT(sl.id), 0) AS loggedSets,
+            tgt.target_sets AS targetSets
+          FROM session s
+          INNER JOIN session_exercise se ON se.session_id = s.id
+          INNER JOIN step stp ON stp.id = se.step_id
+          LEFT JOIN step_target tgt ON tgt.id = se.step_target_id
+          LEFT JOIN set_log sl ON sl.session_exercise_id = se.id
+          WHERE s.finished_at IS NOT NULL
+          GROUP BY s.id, stp.movement_id, se.step_id, COALESCE(s.finished_at, s.started_at), tgt.target_sets
+        ) session_success
+          ON session_success.movementId = current_state.movementId
+         AND session_success.stepId = current_state.currentStepId
+         AND session_success.closedAt > current_state.lastProgressionAt
+         AND session_success.loggedSets >= COALESCE(session_success.targetSets, 999999)
+        GROUP BY current_state.movementId
+      ) success_window
+        ON success_window.movementId = m.id
       ORDER BY m.id
     `,
   );
@@ -107,6 +162,8 @@ export async function getProgressSummary(): Promise<ProgressMovementSummary[]> {
     currentStepName: row.currentStepName,
     nextTarget: row.nextTarget,
     completionRatio: row.currentStepNumber / 10,
+    autoProgressSuccessCount: row.autoProgressSuccessCount,
+    autoProgressRequiredCount: REQUIRED_AUTO_SUCCESS_SESSIONS,
   }));
 }
 
@@ -126,6 +183,7 @@ export async function getMovementProgressDetail(slug: string): Promise<ProgressM
     masterStepName: string | null;
     latestProgressionAt: string | null;
     latestProgressionReason: string | null;
+    autoProgressSuccessCount: number;
   }>(
     `
       SELECT
@@ -141,7 +199,8 @@ export async function getMovementProgressDetail(slug: string): Promise<ProgressM
         master_step.name AS masterStepName
         ,
         latest_event.created_at AS latestProgressionAt,
-        latest_event.reason AS latestProgressionReason
+        latest_event.reason AS latestProgressionReason,
+        COALESCE(success_window.completedCount, 0) AS autoProgressSuccessCount
       FROM movement m
       LEFT JOIN user_movement_level uml ON uml.movement_id = m.id
       LEFT JOIN step current_step ON current_step.id = uml.current_step_id
@@ -173,6 +232,54 @@ export async function getMovementProgressDetail(slug: string): Promise<ProgressM
           ORDER BY pe.created_at DESC, pe.id DESC
           LIMIT 1
         )
+      LEFT JOIN (
+        SELECT
+          current_state.movementId AS movementId,
+          COUNT(*) AS completedCount
+        FROM (
+          SELECT
+            m.id AS movementId,
+            COALESCE(current_step.id, first_step.id) AS currentStepId,
+            COALESCE((
+              SELECT MAX(pe.created_at)
+              FROM progression_event pe
+              WHERE pe.movement_id = m.id
+            ), '') AS lastProgressionAt
+          FROM movement m
+          LEFT JOIN user_movement_level uml ON uml.movement_id = m.id
+          LEFT JOIN step current_step ON current_step.id = uml.current_step_id
+          LEFT JOIN step first_step
+            ON first_step.id = (
+              SELECT s.id
+              FROM step s
+              WHERE s.movement_id = m.id
+              ORDER BY s.step_number
+              LIMIT 1
+            )
+        ) current_state
+        INNER JOIN (
+          SELECT
+            s.id AS sessionId,
+            stp.movement_id AS movementId,
+            se.step_id AS stepId,
+            COALESCE(s.finished_at, s.started_at) AS closedAt,
+            COALESCE(COUNT(sl.id), 0) AS loggedSets,
+            tgt.target_sets AS targetSets
+          FROM session s
+          INNER JOIN session_exercise se ON se.session_id = s.id
+          INNER JOIN step stp ON stp.id = se.step_id
+          LEFT JOIN step_target tgt ON tgt.id = se.step_target_id
+          LEFT JOIN set_log sl ON sl.session_exercise_id = se.id
+          WHERE s.finished_at IS NOT NULL
+          GROUP BY s.id, stp.movement_id, se.step_id, COALESCE(s.finished_at, s.started_at), tgt.target_sets
+        ) session_success
+          ON session_success.movementId = current_state.movementId
+         AND session_success.stepId = current_state.currentStepId
+         AND session_success.closedAt > current_state.lastProgressionAt
+         AND session_success.loggedSets >= COALESCE(session_success.targetSets, 999999)
+        GROUP BY current_state.movementId
+      ) success_window
+        ON success_window.movementId = m.id
       WHERE m.slug = ?
       LIMIT 1
     `,
@@ -195,6 +302,8 @@ export async function getMovementProgressDetail(slug: string): Promise<ProgressM
     completionRatio: detail.currentStepNumber / 10,
     latestProgressionAt: detail.latestProgressionAt,
     latestProgressionReason: detail.latestProgressionReason,
+    autoProgressSuccessCount: detail.autoProgressSuccessCount,
+    autoProgressRequiredCount: REQUIRED_AUTO_SUCCESS_SESSIONS,
   };
 }
 

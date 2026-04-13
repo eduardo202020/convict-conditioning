@@ -117,6 +117,13 @@ export function MovementProgressScreen({ route }: Props) {
         <Text style={styles.copy}>
           Requisito siguiente: {detail?.nextStepGoal ?? 'No hay requisito posterior'}
         </Text>
+        <Text style={styles.copy}>
+          Progreso automatico:{' '}
+          {`${Math.min(
+            detail?.autoProgressSuccessCount ?? 0,
+            detail?.autoProgressRequiredCount ?? 0,
+          )}/${detail?.autoProgressRequiredCount ?? 0} sesiones validas`}
+        </Text>
         <Text style={styles.copy}>Paso maestro: {detail?.masterStepName ?? 'No disponible'}</Text>
         <Text style={styles.copy}>
           Ultimo cambio:{' '}

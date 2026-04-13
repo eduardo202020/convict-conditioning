@@ -15,6 +15,8 @@ export type ProgressionResult = {
   reason: string;
 };
 
+export const REQUIRED_AUTO_SUCCESS_SESSIONS = 2;
+
 type MovementStepContext = {
   movementId: number;
   movementSlug: string;
@@ -225,6 +227,34 @@ export async function applyAutomaticProgressionForSession(sessionId: number) {
     for (const candidate of candidates) {
       if (promotedMovements.has(candidate.movementId)) continue;
       if (!candidate.targetSets || candidate.loggedSets < candidate.targetSets) continue;
+
+      const qualifyingSessions = await db.getFirstAsync<{ completedCount: number }>(
+        `
+          SELECT COUNT(*) AS completedCount
+          FROM (
+            SELECT s.id
+            FROM session s
+            INNER JOIN session_exercise se ON se.session_id = s.id
+            LEFT JOIN step_target tgt ON tgt.id = se.step_target_id
+            LEFT JOIN set_log sl ON sl.session_exercise_id = se.id
+            WHERE s.finished_at IS NOT NULL
+              AND se.step_id = ?
+              AND COALESCE(s.finished_at, s.started_at) > COALESCE((
+                SELECT MAX(pe.created_at)
+                FROM progression_event pe
+                WHERE pe.movement_id = ?
+                  AND pe.reason = 'auto_session_completion'
+              ), '')
+            GROUP BY s.id, tgt.target_sets
+            HAVING COALESCE(COUNT(sl.id), 0) >= COALESCE(tgt.target_sets, 999999)
+            ORDER BY s.finished_at DESC, s.id DESC
+            LIMIT ?
+          ) recent_success
+        `,
+        [candidate.stepId, candidate.movementId, REQUIRED_AUTO_SUCCESS_SESSIONS],
+      );
+
+      if ((qualifyingSessions?.completedCount ?? 0) < REQUIRED_AUTO_SUCCESS_SESSIONS) continue;
 
       const result = await changeMovementStepByOffset(
         db,

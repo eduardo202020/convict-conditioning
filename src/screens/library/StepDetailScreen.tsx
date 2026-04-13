@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, Image, StyleSheet, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
+import { getLocalExerciseImages } from '../../assets/exerciseImages';
 import { AppHeader } from '../../components/AppHeader';
 import { Screen } from '../../components/Screen';
 import { VideoCard } from '../../components/VideoCard';
@@ -36,7 +37,17 @@ export function StepDetailScreen({ navigation, route }: Props) {
     () => detail?.targets.find((target) => target.schemeCode === 'initial') ?? detail?.targets[0] ?? null,
     [detail],
   );
-  const guideCount = detail?.media.filter((media) => media.kind !== 'generated_image_placeholder').length ?? 0;
+  const localImages = useMemo(
+    () =>
+      detail
+        ? getLocalExerciseImages(detail.movementSlug, detail.stepNumber)
+        : route.params.stepNumber
+          ? getLocalExerciseImages(route.params.slug, route.params.stepNumber)
+          : [],
+    [detail, route.params.slug, route.params.stepNumber],
+  );
+  const externalGuideCount =
+    detail?.media.filter((media) => media.kind !== 'generated_image_placeholder').length ?? 0;
 
   return (
     <Screen>
@@ -54,7 +65,11 @@ export function StepDetailScreen({ navigation, route }: Props) {
           </View>
         ) : null}
         <View style={styles.mediaPlate}>
-          <Image source={require('../../../data/Convict.webp')} style={styles.image} resizeMode="cover" />
+          <Image
+            source={localImages[0] ?? require('../../../data/Convict.webp')}
+            style={styles.image}
+            resizeMode="cover"
+          />
         </View>
 
         <View style={styles.dossier}>
@@ -67,11 +82,14 @@ export function StepDetailScreen({ navigation, route }: Props) {
               detail?.techniqueNotes ||
               'Mantener alineacion, rango limpio y tension constante. El movimiento debe verse sobrio, no espectacular.'}
           </Text>
+          <Text style={styles.copy}>
+            Laminas locales: {localImages.length} · Medios externos: {externalGuideCount}
+          </Text>
         </View>
 
         <VideoCard
           title="Abrir referencia multimedia"
-          meta={`${guideCount} medios reales · video guia · imagen tecnica`}
+          meta={`${localImages.length} imagenes locales · ${externalGuideCount} medios externos`}
           onPress={() =>
             navigation.navigate('MediaViewer', {
               slug: route.params.slug,

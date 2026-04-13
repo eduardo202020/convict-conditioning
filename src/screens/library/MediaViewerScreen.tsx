@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Linking, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Image, Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+import { getLocalExerciseImages } from '../../assets/exerciseImages';
 import { AppHeader } from '../../components/AppHeader';
 import { Screen } from '../../components/Screen';
 import { getStepDetail, type StepMedia } from '../../db/library';
@@ -14,6 +15,7 @@ type Props = NativeStackScreenProps<BibliotecaStackParamList, 'MediaViewer'>;
 export function MediaViewerScreen({ route }: Props) {
   const [media, setMedia] = useState<StepMedia[]>([]);
   const [loading, setLoading] = useState(true);
+  const localImages = getLocalExerciseImages(route.params.slug, route.params.stepNumber ?? 1);
 
   useEffect(() => {
     let mounted = true;
@@ -47,23 +49,42 @@ export function MediaViewerScreen({ route }: Props) {
             <ActivityIndicator color={colors.primary} />
             <Text style={styles.copy}>Cargando medios del paso...</Text>
           </>
-        ) : media.length ? (
-          media.map((item) => (
-            <Pressable key={item.id} onPress={() => Linking.openURL(item.uri)} style={styles.mediaRow}>
-              <MaterialCommunityIcons
-                color={item.kind === 'video_guide' ? colors.primary : colors.tertiary}
-                name={item.kind === 'video_guide' ? 'play-box-outline' : 'image-outline'}
-                size={24}
-              />
-              <View style={{ flex: 1, gap: spacing.xxs }}>
-                <Text style={styles.mediaKind}>{item.kind}</Text>
-                <Text numberOfLines={2} style={styles.mediaUri}>
-                  {item.uri}
-                </Text>
-                {item.credit ? <Text style={styles.mediaCredit}>{item.credit}</Text> : null}
+        ) : localImages.length || media.length ? (
+          <>
+            {localImages.length ? (
+              <View style={styles.localSection}>
+                <Text style={styles.sectionTitle}>Laminas locales</Text>
+                {localImages.map((imageSource, index) => (
+                  <View key={`local-${index}`} style={styles.localImageCard}>
+                    <Image source={imageSource} style={styles.localImage} resizeMode="contain" />
+                    <Text style={styles.localImageLabel}>Vista {index + 1}</Text>
+                  </View>
+                ))}
               </View>
-            </Pressable>
-          ))
+            ) : null}
+
+            {media.length ? (
+              <View style={styles.localSection}>
+                <Text style={styles.sectionTitle}>Referencias externas</Text>
+                {media.map((item) => (
+                  <Pressable key={item.id} onPress={() => Linking.openURL(item.uri)} style={styles.mediaRow}>
+                    <MaterialCommunityIcons
+                      color={item.kind === 'video_guide' ? colors.primary : colors.tertiary}
+                      name={item.kind === 'video_guide' ? 'play-box-outline' : 'image-outline'}
+                      size={24}
+                    />
+                    <View style={{ flex: 1, gap: spacing.xxs }}>
+                      <Text style={styles.mediaKind}>{item.kind}</Text>
+                      <Text numberOfLines={2} style={styles.mediaUri}>
+                        {item.uri}
+                      </Text>
+                      {item.credit ? <Text style={styles.mediaCredit}>{item.credit}</Text> : null}
+                    </View>
+                  </Pressable>
+                ))}
+              </View>
+            ) : null}
+          </>
         ) : (
           <>
             <MaterialCommunityIcons color={colors.primary} name="image-filter-center-focus" size={42} />
@@ -78,6 +99,11 @@ export function MediaViewerScreen({ route }: Props) {
 const styles = StyleSheet.create({
   viewer: { marginHorizontal: spacing.lg, marginTop: spacing.xl, minHeight: 320, backgroundColor: colors.surfaceContainer, gap: spacing.md, padding: spacing.lg },
   copy: { ...typography.body, color: colors.onSurfaceVariant, textAlign: 'center' },
+  localSection: { gap: spacing.md },
+  sectionTitle: { ...typography.label, color: colors.tertiary },
+  localImageCard: { backgroundColor: colors.surfaceContainerHigh, padding: spacing.md, gap: spacing.sm },
+  localImage: { width: '100%', height: 280, backgroundColor: colors.background },
+  localImageLabel: { ...typography.caption, color: colors.onSurfaceVariant, textAlign: 'center' },
   mediaRow: { flexDirection: 'row', gap: spacing.md, backgroundColor: colors.surfaceContainerHigh, padding: spacing.md, alignItems: 'flex-start' },
   mediaKind: { ...typography.label, color: colors.onSurface },
   mediaUri: { ...typography.caption, color: colors.tertiary },
