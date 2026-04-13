@@ -29,5 +29,5 @@ export type BibliotecaStackParamList = {
   BigSix: undefined;
   Movement: { slug: string; name: string };
   StepDetail: { slug: string; stepNumber?: number; name?: string };
-  MediaViewer: { title: string };
+  MediaViewer: { slug: string; stepNumber?: number; title: string };
 };
