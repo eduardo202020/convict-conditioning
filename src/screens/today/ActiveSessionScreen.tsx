@@ -1,34 +1,62 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../../components/AppButton';
 import { AppHeader } from '../../components/AppHeader';
 import { Screen } from '../../components/Screen';
-import { todayExercises } from '../../data/mockData';
+import { getTodayDossier, type TodayDossier } from '../../db/today';
 import { HoyStackParamList } from '../../navigation/types';
 import { colors, spacing, typography } from '../../theme';
 
 type Props = NativeStackScreenProps<HoyStackParamList, 'ActiveSession'>;
 
 export function ActiveSessionScreen({ navigation }: Props) {
+  const [dossier, setDossier] = useState<TodayDossier | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let mounted = true;
+
+    getTodayDossier()
+      .then((data) => {
+        if (mounted) setDossier(data);
+      })
+      .finally(() => {
+        if (mounted) setLoading(false);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   return (
     <Screen>
       <AppHeader
         eyebrow="SESION ACTIVA"
         title="REGISTRO DE TRABAJO"
-        description="Dos ejercicios. Pocas series. Intensidad medida. Nada de ruido."
+        description={
+          dossier ? `${dossier.program.name}. Bloques del dia segun programa y paso actual.` : 'Cargando bloques del dia.'
+        }
       />
 
       <View style={styles.list}>
-        {todayExercises.map((exercise, index) => (
-          <View key={exercise.id} style={styles.card}>
+        {loading ? (
+          <View style={styles.loadingBox}>
+            <ActivityIndicator color={colors.primary} />
+            <Text style={styles.loadingText}>Preparando sesion...</Text>
+          </View>
+        ) : null}
+        {dossier?.exercises.map((exercise, index) => (
+          <View key={`${exercise.movementSlug ?? exercise.movementName}-${exercise.position}`} style={styles.card}>
             <Text style={styles.index}>BLOQUE {String(index + 1).padStart(2, '0')}</Text>
-            <Text style={styles.title}>{exercise.movement}</Text>
-            <Text style={styles.subtitle}>{exercise.stepName}</Text>
+            <Text style={styles.title}>{exercise.movementName}</Text>
+            <Text style={styles.subtitle}>{exercise.stepName ?? 'Trabajo auxiliar'}</Text>
             <View style={styles.stats}>
               <View>
                 <Text style={styles.statLabel}>Objetivo</Text>
-                <Text style={styles.statValue}>{exercise.prescription}</Text>
+                <Text style={styles.statValue}>{exercise.prescription ?? 'sin prescripcion'}</Text>
               </View>
               <View>
                 <Text style={styles.statLabel}>Descanso</Text>
@@ -52,6 +80,8 @@ export function ActiveSessionScreen({ navigation }: Props) {
 
 const styles = StyleSheet.create({
   list: { paddingHorizontal: spacing.lg, paddingTop: spacing.xl, gap: spacing.md },
+  loadingBox: { backgroundColor: colors.surfaceContainer, padding: spacing.lg, gap: spacing.sm, alignItems: 'center' },
+  loadingText: { ...typography.caption, color: colors.onSurfaceVariant },
   card: { backgroundColor: colors.surfaceContainer, padding: spacing.lg, gap: spacing.md },
   index: { ...typography.label, color: colors.tertiary },
   title: { ...typography.headline, color: colors.onSurface },
