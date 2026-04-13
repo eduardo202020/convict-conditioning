@@ -1,7 +1,7 @@
 export type RootStackParamList = {
   Onboarding: undefined;
   ChooseProgram: undefined;
-  SetInitialLevels: undefined;
+  SetInitialLevels: { programCode: string };
   MainTabs: undefined;
   Profile: undefined;
   CurrentProgram: undefined;

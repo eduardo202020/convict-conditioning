@@ -1,6 +1,7 @@
 import type { SQLiteDatabase } from 'expo-sqlite';
 
 import { ensurePrebuiltDatabase, openDb } from '../../data/cellstrength_db/ts/initDb';
+import { getActiveProgramCode } from './user';
 
 export type TodayExercise = {
   position: number;
@@ -114,8 +115,9 @@ export async function getCurrentProgram(code = DEFAULT_PROGRAM_CODE): Promise<Cu
 }
 
 export async function getTodayDossier(code = DEFAULT_PROGRAM_CODE): Promise<TodayDossier> {
+  const resolvedCode = code === DEFAULT_PROGRAM_CODE ? (await getActiveProgramCode()) ?? DEFAULT_PROGRAM_CODE : code;
   const db = await getDb();
-  const program = await getCurrentProgram(code);
+  const program = await getCurrentProgram(resolvedCode);
   const dayIndex = getTodayProgramDayIndex(program.daysPerWeek);
 
   if (!dayIndex) {
@@ -158,7 +160,7 @@ export async function getTodayDossier(code = DEFAULT_PROGRAM_CODE): Promise<Toda
         AND pd.day_index = ?
       ORDER BY de.position
     `,
-    [code, dayIndex],
+    [resolvedCode, dayIndex],
   );
 
   return {
@@ -173,8 +175,9 @@ export async function getProgramSchedule(code = DEFAULT_PROGRAM_CODE): Promise<{
   program: CurrentProgram;
   schedule: ProgramDaySchedule[];
 }> {
+  const resolvedCode = code === DEFAULT_PROGRAM_CODE ? (await getActiveProgramCode()) ?? DEFAULT_PROGRAM_CODE : code;
   const db = await getDb();
-  const program = await getCurrentProgram(code);
+  const program = await getCurrentProgram(resolvedCode);
 
   const rows = await db.getAllAsync<{
     dayIndex: number;
@@ -198,7 +201,7 @@ export async function getProgramSchedule(code = DEFAULT_PROGRAM_CODE): Promise<{
       WHERE pd.program_id = (SELECT id FROM program WHERE code = ? LIMIT 1)
       ORDER BY pd.day_index, de.position
     `,
-    code,
+    resolvedCode,
   );
 
   const scheduleMap = new Map<number, ProgramDaySchedule>();
