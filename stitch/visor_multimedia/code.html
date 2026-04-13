@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Public+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#3a3934",
+                    "on-secondary-fixed-variant": "#49473c",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#35352f",
+                    "on-primary-fixed": "#201b0e",
+                    "on-primary-fixed-variant": "#4c4636",
+                    "background": "#14140f",
+                    "on-error": "#690005",
+                    "tertiary-container": "#82939e",
+                    "primary-fixed-dim": "#cfc6b0",
+                    "secondary-fixed": "#e7e2d3",
+                    "on-surface": "#e5e2da",
+                    "primary": "#cfc6b0",
+                    "on-primary-container": "#2e291b",
+                    "on-tertiary-container": "#1c2c34",
+                    "outline": "#969086",
+                    "primary-fixed": "#ece2cc",
+                    "on-secondary": "#323126",
+                    "tertiary": "#b8c9d4",
+                    "on-tertiary-fixed-variant": "#394952",
+                    "tertiary-fixed-dim": "#b8c9d4",
+                    "inverse-primary": "#655e4d",
+                    "on-tertiary": "#22323b",
+                    "secondary": "#cbc6b8",
+                    "secondary-container": "#4b493e",
+                    "inverse-on-surface": "#31312b",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#cbc6b8",
+                    "tertiary-fixed": "#d4e5f1",
+                    "inverse-surface": "#e5e2da",
+                    "surface-tint": "#cfc6b0",
+                    "surface-dim": "#14140f",
+                    "on-secondary-fixed": "#1d1c13",
+                    "surface-container-high": "#2a2a25",
+                    "on-secondary-container": "#bcb8aa",
+                    "surface-variant": "#35352f",
+                    "primary-container": "#98907d",
+                    "surface-container-lowest": "#0e0e0a",
+                    "on-primary": "#353021",
+                    "surface": "#14140f",
+                    "outline-variant": "#4a463e",
+                    "surface-container": "#20201b",
+                    "surface-container-low": "#1c1c17",
+                    "on-background": "#e5e2da",
+                    "on-tertiary-fixed": "#0d1d26",
+                    "on-surface-variant": "#ccc6ba"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader"],
+                    "body": ["Public Sans"],
+                    "label": ["Public Sans"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .perspective-text {
+            transform: skewY(-1deg);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-tertiary selection:text-on-tertiary">
+<!-- TopAppBar -->
+<header class="bg-[#14140F] flex justify-between items-center px-6 h-16 w-full fixed top-0 z-50">
+<div class="flex items-center gap-4">
+<button class="text-[#E5E2DA] active:scale 0.98 transition-transform hover:bg-[#2A2A25] p-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<h1 class="font-serif text-2xl tracking-tight uppercase Newsreader font-serif font-bold text-[#E5E2DA] italic">CONVICT CONDITIONING</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label text-[10px] tracking-[0.2em] text-outline uppercase mr-4">Plate No. 042</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="Close-up portrait of a determined athlete in dim, dramatic lighting looking focused" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp2tb1WxDJUJ8Pw9oJ2qre9wLr9F6ShwXOqREzd70dV-xgeu2H77WMjUu2KDEP14REEvVhUknKf-DhtIRZ17R_qmju_Qv3IE4DO5k7i203sezhZ-H996Ex1rZEmstOxDsbIX5K5GQldj5JHMEzGa8Ma9DnTLlV_Yr2IdIQrZlVNDZAwC2PF3fMv2zWHw4TD7118S3T6UpVmAo3ZfrQ_sKujVrkYGN09H038O_ra4pAxsVKm_3wsvQoNHEGbqyNueSyuZEBQKGmepE"/>
+</div>
+</div>
+</header>
+<div class="bg-[#20201B] h-px w-full fixed top-16 z-50"></div>
+<main class="min-h-screen pt-24 pb-24 px-4 md:px-8 flex flex-col items-center max-w-7xl mx-auto">
+<!-- Media Viewer Canvas -->
+<section class="w-full relative group">
+<!-- Breadcrumbs / Technical Specs -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div class="pl-4 border-l-2 border-primary">
+<span class="block font-label text-xs tracking-widest text-tertiary uppercase mb-1">Big Six / Level 5</span>
+<h2 class="font-headline text-4xl md:text-5xl font-bold tracking-tight italic">FULL PUSHUP</h2>
+</div>
+<div class="flex gap-8 text-right font-label">
+<div>
+<span class="block text-[10px] text-outline tracking-widest uppercase">Target Area</span>
+<span class="text-on-surface font-bold">Pectorals / Triceps</span>
+</div>
+<div>
+<span class="block text-[10px] text-outline tracking-widest uppercase">Stability</span>
+<span class="text-on-surface font-bold">High (Core Locked)</span>
+</div>
+</div>
+</div>
+<!-- The Main Plate -->
+<div class="relative w-full aspect-video md:aspect-[21/9] bg-surface-container-low overflow-hidden group">
+<!-- Grid Overlay for Technical Inspection -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: linear-gradient(to right, #969086 1px, transparent 1px), linear-gradient(to bottom, #969086 1px, transparent 1px); background-size: 40px 40px;"></div>
+<img alt="Exercise form reference" class="w-full h-full object-cover grayscale contrast-125 opacity-90 transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0" data-alt="Cinematic shot of a muscular man in a plank position on a concrete floor, harsh side lighting highlighting muscle definition and strict form" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO_1_nDsnophWaGm-5Ivv0yxpkNp2K7Cuaw-AnJs6W784SYg_rtMYn_5V_knMrNwCx3DNEX4GroE5DJkV636Wlw5H3asHp3yGnx_a-DmobpN24hI6wElCRdIeD7Ak9Ex71GU4y_ujPRmti6x8FLBXzU2FPGzjeEwJaGEcU__30BWAIWlpMZbRSAlsJ6J4xtQz7JRv447d_fHlnqM6NfxJf6OnQgrhvJR1RRJc2akXW_bgOhYOK47sFCvKfnUq3ll4vBa3rQ1_wzqY"/>
+<!-- Focus Reticle Overlay (Decorative/Technical) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-tertiary/20 flex items-center justify-center pointer-events-none">
+<div class="w-2 h-2 bg-tertiary/40 rounded-full"></div>
+</div>
+<!-- Floating Controls -->
+<div class="absolute bottom-6 right-6 flex gap-2">
+<button class="bg-surface/80 backdrop-blur-md text-on-surface w-12 h-12 flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="fullscreen">fullscreen</span>
+</button>
+<button class="bg-surface/80 backdrop-blur-md text-on-surface w-12 h-12 flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="slow_motion_video">slow_motion_video</span>
+</button>
+</div>
+</div>
+<!-- Annotation Bar -->
+<div class="mt-4 flex flex-col md:flex-row items-center justify-between bg-surface-container p-4 border-l-4 border-tertiary">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="info">info</span>
+<p class="text-sm italic text-secondary leading-relaxed">
+                        "Keep the body straight as a rod. No sagging hips. Elbows tucked to the ribs."
+                    </p>
+</div>
+<div class="flex gap-4 mt-4 md:mt-0">
+<button class="text-[10px] font-bold tracking-[0.2em] uppercase px-4 py-2 border border-outline-variant hover:border-tertiary transition-colors">
+                        Compare Progression
+                    </button>
+<button class="text-[10px] font-bold tracking-[0.2em] uppercase px-4 py-2 bg-primary text-on-primary hover:bg-primary-fixed-dim transition-colors">
+                        View Form Guide
+                    </button>
+</div>
+</div>
+</section>
+<!-- Gallery / Alternate Angles -->
+<section class="w-full mt-16">
+<div class="flex items-center gap-4 mb-8">
+<h3 class="font-headline text-2xl italic">ALTERNATE ANGLES</h3>
+<div class="flex-grow h-px bg-outline-variant/30"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Angle 1 -->
+<div class="relative aspect-square bg-surface-container-high p-1 group cursor-pointer overflow-hidden">
+<img alt="Side view angle" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all" data-alt="High contrast side view of an athlete performing a pushup, showing alignment of spine and legs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkBr9YDp5jH5RdljhQIEmUFccCTzgCKKwrHF5N2Yzf9pdc-tJQLxJphIaevCEWOTpyfb7Uba9OL70zZrAr4Vgf8FLIMZFmr2u7G3djkI6Qd9CSHXxXMkFwpOZxck4esb1JiZAPynGdhElYzb-PqlHQZdYue6RrQl3XKYhLsFKLAM2Qr4yPERnKurNmK3DQugj4e_V-0g0A3QyaLgCeng7dxZfLSm3La7F4OlZvwBp-WtWTTjSN0yTLtvVXDYFcb-tPdF8Zq6xY6dY"/>
+<div class="absolute bottom-2 left-2 bg-background/80 px-2 py-1">
+<span class="font-label text-[8px] tracking-widest uppercase">LATERAL VIEW</span>
+</div>
+</div>
+<!-- Angle 2 -->
+<div class="relative aspect-square bg-surface-container-high p-1 group cursor-pointer overflow-hidden">
+<img alt="Front view angle" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all border-2 border-tertiary/50" data-alt="Direct front view of athlete in pushup stance focusing on hand placement and shoulder width" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz7-LtcNBuYrbhlSQPkDQyp7ITLROq5yhE3h84kGdecN_Yx5_-BVdGr6l4rrCPDLVnhpi3xOsxTTtR_ifket4ddg-fXrDNxBbYGOxlceoWGF6MHyMYjll73pGh65l3VoM16qlW3E1W64Eu9ouLbDdplw-ve8iWRGKd_HovB1Ca3atJSNabEtm_rb1gcnlkRPUgBz5WcRr3d4FUA6bU3aahwIqI-Wz820HlITz-okpLJ_006e7fBrb9U-g0d6K4mqkgS6_uJMkB2kI"/>
+<div class="absolute bottom-2 left-2 bg-tertiary px-2 py-1 text-on-tertiary">
+<span class="font-label text-[8px] tracking-widest uppercase font-bold">ACTIVE</span>
+</div>
+</div>
+<!-- Angle 3 -->
+<div class="relative aspect-square bg-surface-container-high p-1 group cursor-pointer overflow-hidden">
+<img alt="Top view angle" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all" data-alt="Top down overhead shot of a workout session in an industrial gym with heavy shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjzQhUvj8uJfpPuG8QSuLV4oD2FQDmxdodDQALwF32IWQYO6wCkKc0_g07yrAv1TDJ0F4Qn8bvxynuoDN47pzWtcfu4RRLg3ASenCR4dugaCaX43eUXR7uwqe0P15PmHZ5tEa0P2l7Cbau_Ix-bZalLhs2u80xdqvxrtC0uO1UcfNtXHzLkSQYvc9_5bdGQ1uiqKIcJ_dQBNYe_B_B3VzIyYxrKG-vmLLjMX-NDrzNBKNF043A8Auw-RwjUJ1TAyDFVowPfNNzwGw"/>
+<div class="absolute bottom-2 left-2 bg-background/80 px-2 py-1">
+<span class="font-label text-[8px] tracking-widest uppercase">DORSAL VIEW</span>
+</div>
+</div>
+<!-- Video Guide Placeholder -->
+<div class="relative aspect-square bg-surface-container-highest flex flex-col items-center justify-center group cursor-pointer overflow-hidden border border-dashed border-outline-variant">
+<span class="material-symbols-outlined text-4xl mb-2 text-outline group-hover:text-primary transition-colors" data-icon="play_circle">play_circle</span>
+<span class="font-label text-[10px] tracking-widest uppercase text-outline">WATCH VIDEO</span>
+</div>
+</div>
+</section>
+<!-- Technical Field Notes (Bento Style) -->
+<section class="w-full mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface-container-low p-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-9xl" data-icon="architecture">architecture</span>
+</div>
+<h4 class="font-headline text-xl italic mb-6 text-primary">FIELD NOTES: THE PERFECT LINE</h4>
+<div class="space-y-6 text-secondary leading-relaxed max-w-lg">
+<p>The full pushup is the benchmark for upper body integrity. Unlike the "volume" focus of modern fitness, the manual demands a 2-second eccentric phase followed by a 1-second pause at the lowest point.</p>
+<p>Observe the heels; they must remain pressed back as if against a wall. This tension bridges the gap between upper and lower body power.</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-8 flex flex-col justify-between border-t-4 border-outline">
+<h4 class="font-label text-xs tracking-[0.3em] uppercase text-outline mb-4">CRITICAL CHECKLIST</h4>
+<ul class="space-y-4 font-label text-[10px] tracking-widest font-bold">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="check_box">check_box</span>
+                        CORE BRACED / NO ARCHING
+                    </li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="check_box">check_box</span>
+                        ELBOWS TUCKED AT 45°
+                    </li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="check_box">check_box</span>
+                        SCAPULAR PROTRACTION AT TOP
+                    </li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="check_box">check_box</span>
+                        CONTROLLED BREATHING
+                    </li>
+</ul>
+<div class="mt-8 pt-6 border-t border-outline-variant/20">
+<span class="text-[9px] text-outline uppercase">Next Progression:</span>
+<span class="block text-sm text-on-surface italic font-headline">Uneven Pushups</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-4 bg-[#14140F] border-t border-[#E5E2DA]/20 z-50">
+<a class="flex flex-col items-center justify-center text-[#CBC6B8] opacity-60 hover:bg-[#2A2A25] transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_today">calendar_today</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans">HOY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#CBC6B8] opacity-60 hover:bg-[#2A2A25] transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="analytics">analytics</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans">PROGRESO</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#B8C9D4] bg-[#20201B] rounded-sm py-1 px-4 translate-y-0.5 shadow-sm" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="library_books">library_books</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans">BIBLIOTECA</span>
+</a>
+</nav>
+</body></html>

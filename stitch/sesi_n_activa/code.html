@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Active Session | CONVICT CONDITIONING</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Public+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#3a3934",
+                    "on-secondary-fixed-variant": "#49473c",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#35352f",
+                    "on-primary-fixed": "#201b0e",
+                    "on-primary-fixed-variant": "#4c4636",
+                    "background": "#14140f",
+                    "on-error": "#690005",
+                    "tertiary-container": "#82939e",
+                    "primary-fixed-dim": "#cfc6b0",
+                    "secondary-fixed": "#e7e2d3",
+                    "on-surface": "#e5e2da",
+                    "primary": "#cfc6b0",
+                    "on-primary-container": "#2e291b",
+                    "on-tertiary-container": "#1c2c34",
+                    "outline": "#969086",
+                    "primary-fixed": "#ece2cc",
+                    "on-secondary": "#323126",
+                    "tertiary": "#b8c9d4",
+                    "on-tertiary-fixed-variant": "#394952",
+                    "tertiary-fixed-dim": "#b8c9d4",
+                    "inverse-primary": "#655e4d",
+                    "on-tertiary": "#22323b",
+                    "secondary": "#cbc6b8",
+                    "secondary-container": "#4b493e",
+                    "inverse-on-surface": "#31312b",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#cbc6b8",
+                    "tertiary-fixed": "#d4e5f1",
+                    "inverse-surface": "#e5e2da",
+                    "surface-tint": "#cfc6b0",
+                    "surface-dim": "#14140f",
+                    "on-secondary-fixed": "#1d1c13",
+                    "surface-container-high": "#2a2a25",
+                    "on-secondary-container": "#bcb8aa",
+                    "surface-variant": "#35352f",
+                    "primary-container": "#98907d",
+                    "surface-container-lowest": "#0e0e0a",
+                    "on-primary": "#353021",
+                    "surface": "#14140f",
+                    "outline-variant": "#4a463e",
+                    "surface-container": "#20201b",
+                    "surface-container-low": "#1c1c17",
+                    "on-background": "#e5e2da",
+                    "on-tertiary-fixed": "#0d1d26",
+                    "on-surface-variant": "#ccc6ba"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": [
+                            "Newsreader"
+                    ],
+                    "body": [
+                            "Public Sans"
+                    ],
+                    "label": [
+                            "Public Sans"
+                    ]
+          }
+        },
+      }
+    }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Public Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Newsreader', serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-[#14140F] dock-full-width top-0 z-50">
+<div class="flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#E5E2DA]">menu</span>
+<h1 class="text-[#E5E2DA] font-serif text-2xl tracking-tight uppercase Newsreader font-bold italic">CONVICT CONDITIONING</h1>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high ring-1 ring-outline-variant/20">
+<img alt="User profile" data-alt="close-up portrait of a determined athlete with sweat on brow, gritty cinematic lighting, neutral tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwnfXyxsbRf2c3_kOSPuutISq_lqpPXoCaH2ihfj3zXVlxRTi2TGm2CfFIaDLFdP7gi5zggPMrKTN-1nWitwLiodc8M1UtUspGIlOO_H2Tasy9fUAFglPx18n2h-FPLwmuktYsMG5eRxnXlrJha5xbH6Vv6LaZX9emPuoWvLsZXXFZ-6Z_zY49Y_5AeOgue0zIdC3nxNWUFY9l6isuZ9wmDXa_ALwLjRk5XdphixxvKRdbTOmmY_c0Ry4vp7YZqlidN3x_75gVw38"/>
+</div>
+</div>
+<div class="bg-[#20201B] h-px w-full"></div>
+</header>
+<main class="max-w-xl mx-auto px-6 pt-8 space-y-10">
+<!-- Session Header & Timer Chip -->
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<p class="text-tertiary font-label text-xs tracking-[0.2em] uppercase font-bold">Sesión Activa</p>
+<h2 class="text-4xl font-headline font-bold leading-none">Nivel 4: Flexiones</h2>
+</div>
+<div class="bg-surface-container-high px-4 py-2 flex items-center gap-3 ring-1 ring-tertiary/30">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span class="font-mono text-tertiary font-bold tabular-nums">01:45</span>
+</div>
+</div>
+<!-- Main Exercise Card -->
+<section class="space-y-4">
+<div class="relative aspect-[4/3] overflow-hidden bg-surface-container shadow-2xl">
+<img alt="Pushups demonstration" class="w-full h-full object-cover grayscale opacity-60 mix-blend-luminosity" data-alt="dramatic low-angle shot of a man performing narrow pushups in a dark, concrete industrial gym with high-contrast shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK5CzUonD1-6oC_qwfnDvtosaDNHUGQA_bJC4-kcb0RvL0SjPXjfwd5y89k22KUZ7_i5949-4w0Km5b6TkSgzP2aDqhwDEfiQOxuFx1TUdS6PRKIZPHFafD2Ky67NXWZexuXVL8J8DJcZXGWS2qj-6-N9g1HIm8a7rhliB-x4KwWmkLnzylCl_bC61HSM5bfguteoyh4kG8DsuxOUfH6mxEiC0O7uF7Zb3rPtV5uZOWU76UJvuXvNJyvp3N7NOuEO8S9SEBMo2vN4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<span class="inline-block bg-primary text-on-primary text-[10px] font-bold tracking-widest px-2 py-0.5 mb-2">TARGET: 2 X 15</span>
+<h3 class="text-3xl font-headline italic">Flexiones de Mitad</h3>
+</div>
+</div>
+<!-- Set Logger -->
+<div class="bg-surface-container-high p-6 space-y-8">
+<div class="grid grid-cols-3 gap-4">
+<div class="space-y-2 border-l-2 border-outline-variant/30 pl-4">
+<p class="text-on-surface-variant text-[10px] font-bold tracking-widest uppercase">Serie</p>
+<p class="text-2xl font-headline font-bold italic">1 / 2</p>
+</div>
+<div class="space-y-2 border-l-2 border-outline-variant/30 pl-4">
+<p class="text-on-surface-variant text-[10px] font-bold tracking-widest uppercase">Previo</p>
+<p class="text-2xl font-headline font-bold italic text-secondary">12</p>
+</div>
+<div class="space-y-2 border-l-2 border-tertiary pl-4">
+<p class="text-tertiary text-[10px] font-bold tracking-widest uppercase">Actual</p>
+<div class="flex items-center gap-2">
+<input class="bg-transparent border-none p-0 text-2xl font-headline font-bold italic focus:ring-0 w-12 text-on-surface" type="number" value="15"/>
+</div>
+</div>
+</div>
+<!-- Tactile Buttons -->
+<div class="flex flex-col gap-3">
+<button class="w-full bg-primary text-on-primary py-5 font-bold tracking-[0.2em] uppercase text-sm hover:brightness-110 active:scale-[0.98] transition-transform">
+                        Registrar Serie
+                    </button>
+<button class="w-full border border-outline-variant/40 text-on-surface py-4 font-bold tracking-[0.2em] uppercase text-xs hover:bg-surface-container-highest active:scale-[0.98] transition-transform">
+                        Omitir Ejercicio
+                    </button>
+</div>
+</div>
+</section>
+<!-- Previous Log Context (Asymmetric Layout) -->
+<section class="grid grid-cols-12 gap-4">
+<div class="col-span-12">
+<h4 class="text-on-surface-variant text-[10px] font-bold tracking-widest uppercase mb-4">Progreso Reciente</h4>
+</div>
+<div class="col-span-7 bg-surface-container p-4 space-y-4">
+<p class="text-xs text-on-surface-variant leading-relaxed font-body">
+                    Tu rendimiento en <span class="text-on-surface font-bold italic">Flexiones Nivel 3</span> fue completado hace 4 días. Estás en camino a desbloquear el Nivel 5.
+                </p>
+</div>
+<div class="col-span-5 flex flex-col justify-between">
+<div class="bg-surface-container-high p-4 text-center">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter mb-1">Racha</p>
+<p class="text-2xl font-headline font-bold">12 d</p>
+</div>
+<div class="bg-tertiary/10 p-4 text-center ring-1 ring-tertiary/20">
+<p class="text-[10px] text-tertiary uppercase tracking-tighter mb-1">Carga</p>
+<p class="text-2xl font-headline font-bold text-tertiary">BW</p>
+</div>
+</div>
+</section>
+<!-- Next Exercise Teaser -->
+<section class="border-t border-outline-variant/20 pt-10">
+<div class="flex items-center justify-between group cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+<div class="space-y-1">
+<p class="text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">Siguiente</p>
+<p class="text-xl font-headline italic">Elevaciones de Pierna</p>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-4 bg-[#14140F] border-t border-[#E5E2DA]/20 z-50">
+<a class="flex flex-col items-center justify-center text-[#B8C9D4] bg-[#20201B] rounded-sm py-1 px-4 active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans">HOY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#CBC6B8] opacity-60 hover:bg-[#2A2A25] active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans">PROGRESO</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#CBC6B8] opacity-60 hover:bg-[#2A2A25] active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans">BIBLIOTECA</span>
+</a>
+</nav>
+</body></html>

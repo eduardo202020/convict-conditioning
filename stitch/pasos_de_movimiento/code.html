@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CONVICT CONDITIONING - Movimiento</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;0,800;1,400;1,700&amp;family=Public+Sans:wght@400;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#3a3934",
+                    "on-secondary-fixed-variant": "#49473c",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#35352f",
+                    "on-primary-fixed": "#201b0e",
+                    "on-primary-fixed-variant": "#4c4636",
+                    "background": "#14140f",
+                    "on-error": "#690005",
+                    "tertiary-container": "#82939e",
+                    "primary-fixed-dim": "#cfc6b0",
+                    "secondary-fixed": "#e7e2d3",
+                    "on-surface": "#e5e2da",
+                    "primary": "#cfc6b0",
+                    "on-primary-container": "#2e291b",
+                    "on-tertiary-container": "#1c2c34",
+                    "outline": "#969086",
+                    "primary-fixed": "#ece2cc",
+                    "on-secondary": "#323126",
+                    "tertiary": "#b8c9d4",
+                    "on-tertiary-fixed-variant": "#394952",
+                    "tertiary-fixed-dim": "#b8c9d4",
+                    "inverse-primary": "#655e4d",
+                    "on-tertiary": "#22323b",
+                    "secondary": "#cbc6b8",
+                    "secondary-container": "#4b493e",
+                    "inverse-on-surface": "#31312b",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#cbc6b8",
+                    "tertiary-fixed": "#d4e5f1",
+                    "inverse-surface": "#e5e2da",
+                    "surface-tint": "#cfc6b0",
+                    "surface-dim": "#14140f",
+                    "on-secondary-fixed": "#1d1c13",
+                    "surface-container-high": "#2a2a25",
+                    "on-secondary-container": "#bcb8aa",
+                    "surface-variant": "#35352f",
+                    "primary-container": "#98907d",
+                    "surface-container-lowest": "#0e0e0a",
+                    "on-primary": "#353021",
+                    "surface": "#14140f",
+                    "outline-variant": "#4a463e",
+                    "surface-container": "#20201b",
+                    "surface-container-low": "#1c1c17",
+                    "on-background": "#e5e2da",
+                    "on-tertiary-fixed": "#0d1d26",
+                    "on-surface-variant": "#ccc6ba"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader"],
+                    "body": ["Public Sans"],
+                    "label": ["Public Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Public Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Newsreader', serif; }
+        .staggered-border::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: -8px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(229, 226, 218, 0.1);
+            z-index: -1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface selection:bg-tertiary selection:text-on-tertiary">
+<!-- TopAppBar -->
+<header class="fixed top-0 z-50 flex justify-between items-center px-6 h-16 w-full bg-[#14140F] text-[#E5E2DA]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#E5E2DA]" data-icon="menu">menu</span>
+<h1 class="font-serif text-2xl tracking-tight uppercase Newsreader font-bold italic">CONVICT CONDITIONING</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img class="w-full h-full object-cover" data-alt="User profile portrait in soft dramatic lighting with dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgO9J-towUyFJIVE-3-UP7rRRQf6n8TZYXAQmgBRok9uOF_cpQ3SZ1TxxeC-kH5a05izZJDST9sXytbwbxookU_MggCApyN7r_KwTkY7TD5XEkt6-FZF6EpL8GP9tTnTr2BhI7WriVEdk8n5r1dqfxcUr38e-lwYeHtsLr0pxy--X_FdoAxYKgwGeRcPLLTEahf0nWnXA00eB7jR0gzWLbR6QIkTqKWvcKDXWjBmsfC5ZbKfNC1B77KMMJP5TVYrhVkLNSQqHz1NY"/>
+</div>
+<div class="absolute bottom-0 left-0 bg-[#20201B] h-px w-full"></div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-12">
+<div class="relative overflow-hidden mb-6 bg-surface-container-high h-64 staggered-border">
+<img class="w-full h-full object-cover grayscale opacity-60" data-alt="Monochrome gritty action shot of a man performing a strict floor pushup in an old concrete gym" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIijlDCdxFxBLS5w0URu4MyEJRj2Va4ZuYtc_OZmErS5e6w1eeMWbiEhxbSCywUC-56jK0VqtNN4G68gTJTorYKYRZopRKJnapfuX5F8xxvhUkL-d2VwYF-5n7T_OtvcMl7i3n7r1GVnypd-6HMzptMceNuD07mTo0hcKXU9cElf878hMZyVMLf79IDzVcCqvI3zsOBd30RQhRvpb3w2FUnUiQFU7B7fUu6CoR6sY3erbNiZQP1_zrEs9W6x93cN19TtCgfmaqTh4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<span class="font-label text-xs tracking-widest uppercase text-tertiary mb-2 block">SERIES PRIMORDIALES</span>
+<h2 class="text-5xl font-bold italic tracking-tighter leading-none">PUSHUPS</h2>
+</div>
+</div>
+<p class="text-on-surface-variant font-body leading-relaxed max-w-prose">
+                La piedra angular de la fuerza del tren superior. Diez niveles de progresión diseñados para transformar el pecho, los hombros y los tríceps en armadura de acero.
+            </p>
+</section>
+<!-- Mastery Progression Path (Editorial List) -->
+<section class="space-y-4">
+<div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/10 pb-4">
+<h3 class="text-2xl font-bold italic">LA ESCALERA</h3>
+<span class="font-label text-[10px] tracking-[0.2em] text-outline">NIVEL ACTUAL: 04</span>
+</div>
+<!-- STEP 01 - UNLOCKED/COMPLETED -->
+<div class="group relative flex gap-6 p-6 bg-surface-container-high transition-transform duration-200 active:scale-[0.98]">
+<div class="flex flex-col items-center">
+<span class="text-tertiary font-bold text-lg leading-none mb-1">01</span>
+<div class="w-px h-full bg-tertiary/20"></div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline text-xl font-bold text-secondary italic">Pared</h4>
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-on-surface-variant text-sm font-body line-clamp-2">Iniciación suave para tendones y articulaciones. Control total.</p>
+</div>
+</div>
+<!-- STEP 02 - UNLOCKED/COMPLETED -->
+<div class="group relative flex gap-6 p-6 bg-surface-container-high transition-transform duration-200 active:scale-[0.98]">
+<div class="flex flex-col items-center">
+<span class="text-tertiary font-bold text-lg leading-none mb-1">02</span>
+<div class="w-px h-full bg-tertiary/20"></div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline text-xl font-bold text-secondary italic">Inclinadas</h4>
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-on-surface-variant text-sm font-body line-clamp-2">Elevación de manos a la altura de la cintura. Construcción de base.</p>
+</div>
+</div>
+<!-- STEP 03 - UNLOCKED/COMPLETED -->
+<div class="group relative flex gap-6 p-6 bg-surface-container-high transition-transform duration-200 active:scale-[0.98]">
+<div class="flex flex-col items-center">
+<span class="text-tertiary font-bold text-lg leading-none mb-1">03</span>
+<div class="w-px h-full bg-tertiary/20"></div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline text-xl font-bold text-secondary italic">De Rodillas</h4>
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-on-surface-variant text-sm font-body line-clamp-2">Técnica perfecta sin el peso completo del cuerpo. Enfoque en core.</p>
+</div>
+</div>
+<!-- STEP 04 - CURRENT ACTIVE -->
+<div class="group relative flex gap-6 p-6 bg-surface-bright ring-1 ring-tertiary/30 shadow-lg transition-transform duration-200 active:scale-[0.98]">
+<div class="flex flex-col items-center">
+<span class="text-tertiary font-bold text-lg leading-none mb-1">04</span>
+<div class="w-px h-full bg-tertiary"></div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline text-2xl font-bold text-primary italic">Media Flexión</h4>
+<span class="font-label text-[10px] text-on-primary-container bg-primary px-2 py-0.5 font-bold">ACTIVO</span>
+</div>
+<p class="text-on-surface font-body mb-4">Descenso hasta que los codos formen 90 grados. Máximo control en la base.</p>
+<div class="flex items-center gap-4">
+<div class="flex-1 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-3/4"></div>
+</div>
+<span class="font-label text-[10px] text-tertiary uppercase">Progreso 75%</span>
+</div>
+</div>
+</div>
+<!-- STEP 05 - LOCKED -->
+<div class="group relative flex gap-6 p-6 bg-surface-container-low opacity-60">
+<div class="flex flex-col items-center">
+<span class="text-outline font-bold text-lg leading-none mb-1">05</span>
+<div class="w-px h-full bg-outline/20"></div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline text-xl font-bold text-outline italic">Flexión Estándar</h4>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="lock">lock</span>
+</div>
+<p class="text-on-surface-variant/50 text-sm font-body line-clamp-1">El estándar de oro. Pecho al suelo, bloqueo total arriba.</p>
+</div>
+</div>
+<!-- STEP 06 - LOCKED -->
+<div class="group relative flex gap-6 p-6 bg-surface-container-low opacity-60">
+<div class="flex flex-col items-center">
+<span class="text-outline font-bold text-lg leading-none mb-1">06</span>
+<div class="w-px h-full bg-outline/20"></div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline text-xl font-bold text-outline italic">Diamante</h4>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="lock">lock</span>
+</div>
+<p class="text-on-surface-variant/50 text-sm font-body line-clamp-1">Enfoque masivo en tríceps mediante la unión de las manos.</p>
+</div>
+</div>
+<!-- STEP 07 - LOCKED -->
+<div class="group relative flex gap-6 p-6 bg-surface-container-low opacity-60">
+<div class="flex flex-col items-center">
+<span class="text-outline font-bold text-lg leading-none mb-1">07</span>
+<div class="w-px h-full bg-outline/20"></div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline text-xl font-bold text-outline italic">Asimétricas</h4>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="lock">lock</span>
+</div>
+</div>
+</div>
+<!-- STEP 10 - THE MASTER STEP (LOCKED) -->
+<div class="group relative flex gap-6 p-8 border-2 border-dashed border-outline-variant/30 bg-surface-container-lowest opacity-40">
+<div class="flex flex-col items-center">
+<span class="text-outline font-bold text-lg leading-none mb-1">10</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline text-3xl font-extrabold text-outline italic tracking-tight">A UNA MANO</h4>
+<span class="material-symbols-outlined text-outline" data-icon="military_tech">military_tech</span>
+</div>
+<span class="font-label text-[10px] tracking-widest text-outline">NIVEL MAESTRO</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-4 bg-[#14140F] z-50">
+<div class="absolute top-0 left-0 w-full border-t border-[#E5E2DA]/20"></div>
+<div class="flex flex-col items-center justify-center text-[#CBC6B8] opacity-60 hover:bg-[#2A2A25] transition-all">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_today">calendar_today</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans uppercase">HOY</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#CBC6B8] opacity-60 hover:bg-[#2A2A25] transition-all">
+<span class="material-symbols-outlined mb-1" data-icon="analytics">analytics</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans uppercase">PROGRESO</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#B8C9D4] bg-[#20201B] rounded-sm py-1 px-4 active:translate-y-0.5">
+<span class="material-symbols-outlined mb-1" data-icon="library_books" style="font-variation-settings: 'FILL' 1;">library_books</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans uppercase">BIBLIOTECA</span>
+</div>
+</nav>
+<!-- Contextual FAB - Start Training -->
+<button class="fixed bottom-24 right-6 bg-primary text-on-primary w-14 h-14 flex items-center justify-center shadow-xl transition-transform active:scale-95 group">
+<span class="material-symbols-outlined text-2xl" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</body></html>

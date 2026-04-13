@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Public+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#3a3934",
+                    "on-secondary-fixed-variant": "#49473c",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#35352f",
+                    "on-primary-fixed": "#201b0e",
+                    "on-primary-fixed-variant": "#4c4636",
+                    "background": "#14140f",
+                    "on-error": "#690005",
+                    "tertiary-container": "#82939e",
+                    "primary-fixed-dim": "#cfc6b0",
+                    "secondary-fixed": "#e7e2d3",
+                    "on-surface": "#e5e2da",
+                    "primary": "#cfc6b0",
+                    "on-primary-container": "#2e291b",
+                    "on-tertiary-container": "#1c2c34",
+                    "outline": "#969086",
+                    "primary-fixed": "#ece2cc",
+                    "on-secondary": "#323126",
+                    "tertiary": "#b8c9d4",
+                    "on-tertiary-fixed-variant": "#394952",
+                    "tertiary-fixed-dim": "#b8c9d4",
+                    "inverse-primary": "#655e4d",
+                    "on-tertiary": "#22323b",
+                    "secondary": "#cbc6b8",
+                    "secondary-container": "#4b493e",
+                    "inverse-on-surface": "#31312b",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#cbc6b8",
+                    "tertiary-fixed": "#d4e5f1",
+                    "inverse-surface": "#e5e2da",
+                    "surface-tint": "#cfc6b0",
+                    "surface-dim": "#14140f",
+                    "on-secondary-fixed": "#1d1c13",
+                    "surface-container-high": "#2a2a25",
+                    "on-secondary-container": "#bcb8aa",
+                    "surface-variant": "#35352f",
+                    "primary-container": "#98907d",
+                    "surface-container-lowest": "#0e0e0a",
+                    "on-primary": "#353021",
+                    "surface": "#14140f",
+                    "outline-variant": "#4a463e",
+                    "surface-container": "#20201b",
+                    "surface-container-low": "#1c1c17",
+                    "on-background": "#e5e2da",
+                    "on-tertiary-fixed": "#0d1d26",
+                    "on-surface-variant": "#ccc6ba"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader"],
+                    "body": ["Public Sans"],
+                    "label": ["Public Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dossier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-tertiary selection:text-on-tertiary">
+<!-- TopAppBar -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-[#14140F] flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#E5E2DA]">menu</span>
+<h1 class="font-serif text-2xl tracking-tight uppercase Newsreader font-bold text-[#E5E2DA] italic">CONVICT CONDITIONING</h1>
+</div>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant/20">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a determined athlete with grit on their face, dramatic high-contrast lighting, dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlbw6UIdShSGckeT5NKG6nBIQdBSY02zOXU4-7L7cU-tfqpzLK3o4jDXJBiikG7W2_Z_MMuWMIzW9yNQg9nzjibIpHxi_wmEZ32I9QEFNeFRkrcJT2W7Qn3oj2K8UoXh8RBDacn5a_nkHKH_G7KYAlLfgyQmOeJNU9KmmQrvIBdvlUqK9gDa0SwibjyczPSHkf5q9rnoORsQZAXnUCDCchj6sRugdykDeU1kL4eIcLpKM1WnSTltw8Tn-3tfpa1xw2UcYTz23xSiI"/>
+</div>
+</nav>
+<div class="bg-[#20201B] h-px w-full fixed top-16 z-50"></div>
+<!-- Main Content: Progress Dossier -->
+<main class="pt-24 pb-32 px-6 max-w-5xl mx-auto min-h-screen">
+<!-- Header Section -->
+<header class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="font-label text-tertiary text-xs tracking-[0.2em] uppercase font-bold">Registro de Avance</span>
+<h2 class="font-headline text-5xl md:text-6xl text-on-surface mt-2 -ml-1 italic font-extrabold tracking-tighter">Progreso</h2>
+</div>
+<div class="bg-surface-container p-4 border-l-2 border-primary">
+<p class="text-xs font-label uppercase tracking-widest text-secondary mb-1">Racha Actual</p>
+<p class="text-3xl font-headline italic font-bold">14 DÍAS</p>
+</div>
+</div>
+<div class="mt-8 bg-surface-container-high h-2 w-full overflow-hidden">
+<div class="bg-tertiary h-full w-[68%]"></div>
+</div>
+<p class="mt-2 text-xs font-label text-outline text-right uppercase tracking-widest">Maestría Global: 68%</p>
+</header>
+<!-- The Big 6 Progression Grid -->
+<section class="dossier-grid">
+<!-- Pushups Card -->
+<div class="bg-surface-container p-6 flex flex-col justify-between border-t border-outline-variant/10 group hover:bg-surface-container-high transition-colors">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="text-4xl font-headline italic font-black text-outline/20">01</span>
+<span class="material-symbols-outlined text-primary">fitness_center</span>
+</div>
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight mb-2">Flexiones</h3>
+<p class="text-sm text-secondary mb-6 leading-relaxed">Nivel 7: Flexiones de Diamante. Enfocarse en la extensión completa del codo.</p>
+</div>
+<div>
+<div class="flex justify-between text-xs font-label uppercase tracking-widest mb-2">
+<span>Progreso Nivel</span>
+<span class="text-tertiary">14/20 Reps</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-3">
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-surface-container-highest"></div>
+<div class="bg-surface-container-highest"></div>
+<div class="bg-surface-container-highest"></div>
+</div>
+</div>
+</div>
+<!-- Squats Card -->
+<div class="bg-surface-container p-6 flex flex-col justify-between border-t border-outline-variant/10 group hover:bg-surface-container-high transition-colors">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="text-4xl font-headline italic font-black text-outline/20">02</span>
+<span class="material-symbols-outlined text-primary">directions_run</span>
+</div>
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight mb-2">Sentadillas</h3>
+<p class="text-sm text-secondary mb-6 leading-relaxed">Nivel 9: Sentadilla a una pierna (Pistol). Mantener el torso erguido.</p>
+</div>
+<div>
+<div class="flex justify-between text-xs font-label uppercase tracking-widest mb-2">
+<span>Progreso Nivel</span>
+<span class="text-tertiary">8/10 Reps</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-3">
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-surface-container-highest"></div>
+<div class="bg-surface-container-highest"></div>
+</div>
+</div>
+</div>
+<!-- Pullups Card -->
+<div class="bg-surface-container p-6 flex flex-col justify-between border-t border-outline-variant/10 group hover:bg-surface-container-high transition-colors">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="text-4xl font-headline italic font-black text-outline/20">03</span>
+<span class="material-symbols-outlined text-primary">reorder</span>
+</div>
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight mb-2">Dominadas</h3>
+<p class="text-sm text-secondary mb-6 leading-relaxed">Nivel 5: Dominadas Completas. Control total en la fase excéntrica.</p>
+</div>
+<div>
+<div class="flex justify-between text-xs font-label uppercase tracking-widest mb-2">
+<span>Progreso Nivel</span>
+<span class="text-tertiary">12/12 Reps</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-3">
+<div class="bg-primary"></div>
+<div class="bg-primary"></div>
+<div class="bg-primary"></div>
+<div class="bg-primary"></div>
+<div class="bg-primary"></div>
+<div class="bg-primary"></div>
+<div class="bg-primary"></div>
+<div class="bg-primary"></div>
+<div class="bg-primary"></div>
+<div class="bg-primary"></div>
+</div>
+<p class="text-[10px] text-primary mt-2 font-bold tracking-widest">¡NIVEL SUPERADO!</p>
+</div>
+</div>
+<!-- Leg Raises Card -->
+<div class="bg-surface-container p-6 flex flex-col justify-between border-t border-outline-variant/10 group hover:bg-surface-container-high transition-colors">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="text-4xl font-headline italic font-black text-outline/20">04</span>
+<span class="material-symbols-outlined text-primary">vertical_align_top</span>
+</div>
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight mb-2">Elevaciones</h3>
+<p class="text-sm text-secondary mb-6 leading-relaxed">Nivel 6: Elevaciones de piernas colgado (Rodillas). Estabilidad de core.</p>
+</div>
+<div>
+<div class="flex justify-between text-xs font-label uppercase tracking-widest mb-2">
+<span>Progreso Nivel</span>
+<span class="text-tertiary">15/25 Reps</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-3">
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-surface-container-highest"></div>
+<div class="bg-surface-container-highest"></div>
+<div class="bg-surface-container-highest"></div>
+<div class="bg-surface-container-highest"></div>
+</div>
+</div>
+</div>
+<!-- Bridges Card -->
+<div class="bg-surface-container p-6 flex flex-col justify-between border-t border-outline-variant/10 group hover:bg-surface-container-high transition-colors">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="text-4xl font-headline italic font-black text-outline/20">05</span>
+<span class="material-symbols-outlined text-primary">architecture</span>
+</div>
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight mb-2">Puentes</h3>
+<p class="text-sm text-secondary mb-6 leading-relaxed">Nivel 3: Puente Corto. Flexibilidad de columna y fuerza lumbar.</p>
+</div>
+<div>
+<div class="flex justify-between text-xs font-label uppercase tracking-widest mb-2">
+<span>Progreso Nivel</span>
+<span class="text-tertiary">20/30 Reps</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-3">
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-surface-container-highest"></div>
+<div class="bg-surface-container-highest"></div>
+<div class="bg-surface-container-highest"></div>
+</div>
+</div>
+</div>
+<!-- HSPU Card -->
+<div class="bg-surface-container p-6 flex flex-col justify-between border-t border-outline-variant/10 group hover:bg-surface-container-high transition-colors">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="text-4xl font-headline italic font-black text-outline/20">06</span>
+<span class="material-symbols-outlined text-primary">change_history</span>
+</div>
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight mb-2">Verticales</h3>
+<p class="text-sm text-secondary mb-6 leading-relaxed">Nivel 2: Parada de manos contra la pared. Resistencia de hombros.</p>
+</div>
+<div>
+<div class="flex justify-between text-xs font-label uppercase tracking-widest mb-2">
+<span>Progreso Nivel</span>
+<span class="text-tertiary">45/60 Segs</span>
+</div>
+<div class="grid grid-cols-10 gap-1 h-3">
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-tertiary"></div>
+<div class="bg-surface-container-highest"></div>
+<div class="bg-surface-container-highest"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Consistency Chart (Custom Asymmetric Layout) -->
+<section class="mt-16 bg-surface-container p-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[120px]">analytics</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline text-3xl font-bold italic mb-8 uppercase">Consistencia Mensual</h3>
+<div class="flex items-end justify-between h-48 gap-2">
+<!-- Simple Bars to simulate consistency -->
+<div class="flex-1 bg-tertiary/20 h-[40%] hover:bg-tertiary transition-colors"></div>
+<div class="flex-1 bg-tertiary h-[85%]"></div>
+<div class="flex-1 bg-tertiary/20 h-[60%] hover:bg-tertiary transition-colors"></div>
+<div class="flex-1 bg-tertiary h-[95%]"></div>
+<div class="flex-1 bg-tertiary h-[100%]"></div>
+<div class="flex-1 bg-tertiary/20 h-[30%] hover:bg-tertiary transition-colors"></div>
+<div class="flex-1 bg-tertiary h-[75%]"></div>
+<div class="flex-1 bg-tertiary h-[80%]"></div>
+<div class="flex-1 bg-tertiary/20 h-[50%] hover:bg-tertiary transition-colors"></div>
+<div class="flex-1 bg-tertiary h-[90%]"></div>
+<div class="flex-1 bg-tertiary/20 h-[65%] hover:bg-tertiary transition-colors"></div>
+<div class="flex-1 bg-tertiary h-[100%]"></div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] font-label text-outline uppercase tracking-widest">
+<span>Ene</span>
+<span>Mar</span>
+<span>May</span>
+<span>Jul</span>
+<span>Sep</span>
+<span>Nov</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-4 bg-[#14140F] border-t border-[#E5E2DA]/20 z-50">
+<button class="flex flex-col items-center justify-center text-[#CBC6B8] opacity-60 hover:bg-[#2A2A25] transition-all">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans">HOY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#B8C9D4] bg-[#20201B] rounded-sm py-1 px-4 translate-y-0.5">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans">PROGRESO</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#CBC6B8] opacity-60 hover:bg-[#2A2A25] transition-all">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans">BIBLIOTECA</span>
+</button>
+</nav>
+</body></html>

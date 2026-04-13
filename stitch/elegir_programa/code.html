@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;0,800;1,400;1,700&amp;family=Public+Sans:wght@300;400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#3a3934",
+                    "on-secondary-fixed-variant": "#49473c",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#35352f",
+                    "on-primary-fixed": "#201b0e",
+                    "on-primary-fixed-variant": "#4c4636",
+                    "background": "#14140f",
+                    "on-error": "#690005",
+                    "tertiary-container": "#82939e",
+                    "primary-fixed-dim": "#cfc6b0",
+                    "secondary-fixed": "#e7e2d3",
+                    "on-surface": "#e5e2da",
+                    "primary": "#cfc6b0",
+                    "on-primary-container": "#2e291b",
+                    "on-tertiary-container": "#1c2c34",
+                    "outline": "#969086",
+                    "primary-fixed": "#ece2cc",
+                    "on-secondary": "#323126",
+                    "tertiary": "#b8c9d4",
+                    "on-tertiary-fixed-variant": "#394952",
+                    "tertiary-fixed-dim": "#b8c9d4",
+                    "inverse-primary": "#655e4d",
+                    "on-tertiary": "#22323b",
+                    "secondary": "#cbc6b8",
+                    "secondary-container": "#4b493e",
+                    "inverse-on-surface": "#31312b",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#cbc6b8",
+                    "tertiary-fixed": "#d4e5f1",
+                    "inverse-surface": "#e5e2da",
+                    "surface-tint": "#cfc6b0",
+                    "surface-dim": "#14140f",
+                    "on-secondary-fixed": "#1d1c13",
+                    "surface-container-high": "#2a2a25",
+                    "on-secondary-container": "#bcb8aa",
+                    "surface-variant": "#35352f",
+                    "primary-container": "#98907d",
+                    "surface-container-lowest": "#0e0e0a",
+                    "on-primary": "#353021",
+                    "surface": "#14140f",
+                    "outline-variant": "#4a463e",
+                    "surface-container": "#20201b",
+                    "surface-container-low": "#1c1c17",
+                    "on-background": "#e5e2da",
+                    "on-tertiary-fixed": "#0d1d26",
+                    "on-surface-variant": "#ccc6ba"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Public Sans", "sans-serif"],
+                    "label": ["Public Sans", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            background-color: #14140F;
+            color: #E5E2DA;
+            font-family: 'Public Sans', sans-serif;
+        }
+        .dossier-clip {
+            clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 0 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-24">
+<!-- TopAppBar -->
+<nav class="bg-[#14140F] flex justify-between items-center px-6 h-16 w-full fixed top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#E5E2DA]">menu</span>
+<h1 class="font-serif text-2xl tracking-tight uppercase Newsreader font-bold italic text-[#E5E2DA]">CONVICT CONDITIONING</h1>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User profile photo" data-alt="Close-up portrait of a determined athlete with grit on their face, dramatic low-key lighting, charcoal tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClkTmKKEWW6N_9tdi6jcZ3PGJjyJK55gihLkoJUx2MuTTufQjF6N5VK19YGlswQ0R_XQkXm4RHwWMwt6qo4FyZ3R5EQi91ysZHl7MJjLfZCQ2BviWOJtlh_mGlu5Yyc9PLAUPSQtGWm6aFk_gky77pJhloSxPfdLi3vxudtgx2ASQHoZN4Cer8vFsd2RFCBPN99nRscETc1RWV1GKx09oscwr_w6OJugx24meGqh50ff_YC8NgXISIgNOCM35vdJY_h8JlHlePrpw"/>
+</div>
+</nav>
+<div class="bg-[#20201B] h-px w-full mt-16"></div>
+<!-- Main Content Canvas -->
+<main class="max-w-screen-xl mx-auto px-6 pt-12">
+<header class="mb-12 ml-4 md:ml-8 border-l-4 border-primary pl-6 py-2">
+<span class="font-label text-xs tracking-[0.3em] uppercase text-tertiary mb-2 block">Selección de Protocolo</span>
+<h2 class="font-headline text-5xl md:text-6xl font-bold tracking-tighter italic">PROGRAMAS DE ENTRENAMIENTO</h2>
+<p class="font-body text-secondary mt-4 max-w-xl opacity-80 leading-relaxed">
+                Escoge tu sentencia. Cada programa ha sido diseñado para forjar una fuerza inquebrantable utilizando únicamente el peso de tu cuerpo y la disciplina de acero.
+            </p>
+</header>
+<!-- Programs Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+<!-- Program 1: New Blood -->
+<div class="group relative bg-surface-container h-full dossier-clip border-l border-t border-outline-variant/20 flex flex-col hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<span class="bg-primary text-on-primary px-3 py-1 font-label text-[10px] font-black tracking-widest uppercase">Nivel 01</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+<span class="material-symbols-outlined text-outline-variant text-sm">star</span>
+<span class="material-symbols-outlined text-outline-variant text-sm">star</span>
+</div>
+</div>
+<h3 class="font-headline text-3xl font-bold mb-2 uppercase tracking-tight italic">NEW BLOOD</h3>
+<p class="font-body text-secondary text-sm leading-snug mb-6 opacity-75">
+                        Para el iniciado. El primer paso hacia la libertad física. Construye los cimientos antes de que el muro te aplaste.
+                    </p>
+<div class="space-y-4 pt-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg">calendar_today</span>
+<span class="font-label text-xs font-bold tracking-wider">2 DÍAS / SEMANA</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg">psychology</span>
+<span class="font-label text-xs font-bold tracking-wider uppercase">ADAPTACIÓN ESTRUCTURAL</span>
+</div>
+</div>
+</div>
+<div class="mt-auto bg-surface-container-highest p-4 text-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="font-label text-[10px] font-black tracking-[0.2em] uppercase">Iniciar Expediente</span>
+</div>
+</div>
+<!-- Program 2: Good Behavior -->
+<div class="group relative bg-surface-container-high h-full dossier-clip border-l border-t border-outline-variant/20 flex flex-col hover:bg-surface-container-highest transition-colors cursor-pointer">
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 font-label text-[10px] font-black tracking-widest uppercase text-[#2e291b]">Nivel 02</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+<span class="material-symbols-outlined text-outline-variant text-sm">star</span>
+</div>
+</div>
+<h3 class="font-headline text-3xl font-bold mb-2 uppercase tracking-tight italic">GOOD BEHAVIOR</h3>
+<p class="font-body text-secondary text-sm leading-snug mb-6 opacity-75">
+                        Disciplina constante. El ritmo necesario para transformar un cuerpo blando en una herramienta de utilidad.
+                    </p>
+<div class="space-y-4 pt-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg">calendar_today</span>
+<span class="font-label text-xs font-bold tracking-wider">3 DÍAS / SEMANA</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg">psychology</span>
+<span class="font-label text-xs font-bold tracking-wider uppercase">CONSISTENCIA TÁCTICA</span>
+</div>
+</div>
+</div>
+<div class="mt-auto bg-surface-container-highest p-4 text-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="font-label text-[10px] font-black tracking-[0.2em] uppercase">Iniciar Expediente</span>
+</div>
+</div>
+<!-- Program 3: Veterano -->
+<div class="group relative bg-surface-container h-full dossier-clip border-l border-t border-outline-variant/20 flex flex-col hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<span class="bg-tertiary text-on-tertiary px-3 py-1 font-label text-[10px] font-black tracking-widest uppercase">Nivel 03</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+</div>
+</div>
+<h3 class="font-headline text-3xl font-bold mb-2 uppercase tracking-tight italic">VETERANO</h3>
+<p class="font-body text-secondary text-sm leading-snug mb-6 opacity-75">
+                        Fuerza funcional real. Para aquellos que han sobrevivido a lo básico y buscan el dominio de las seis progresiones.
+                    </p>
+<div class="space-y-4 pt-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg">calendar_today</span>
+<span class="font-label text-xs font-bold tracking-wider">4 DÍAS / SEMANA</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg">psychology</span>
+<span class="font-label text-xs font-bold tracking-wider uppercase">DOMINIO DE TÉCNICA</span>
+</div>
+</div>
+</div>
+<div class="mt-auto bg-surface-container-highest p-4 text-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="font-label text-[10px] font-black tracking-[0.2em] uppercase">Iniciar Expediente</span>
+</div>
+</div>
+<!-- Program 4: Solitary Confinement -->
+<div class="group relative bg-surface-container-high h-full dossier-clip border-l border-t border-outline-variant/20 flex flex-col hover:bg-surface-container-highest transition-colors cursor-pointer lg:col-start-1 lg:translate-x-1/2">
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<span class="bg-error-container text-on-error-container px-3 py-1 font-label text-[10px] font-black tracking-widest uppercase">Nivel 04</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+</div>
+</div>
+<h3 class="font-headline text-3xl font-bold mb-2 uppercase tracking-tight italic">SOLITARY CONFINEMENT</h3>
+<p class="font-body text-secondary text-sm leading-snug mb-6 opacity-75">
+                        Enfoque obsesivo. Solo tú contra el acero de tu propia voluntad. Volumen alto y descanso mínimo.
+                    </p>
+<div class="space-y-4 pt-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg">calendar_today</span>
+<span class="font-label text-xs font-bold tracking-wider">5 DÍAS / SEMANA</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg">psychology</span>
+<span class="font-label text-xs font-bold tracking-wider uppercase">VOLUMEN MÁXIMO</span>
+</div>
+</div>
+</div>
+<div class="mt-auto bg-surface-container-highest p-4 text-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="font-label text-[10px] font-black tracking-[0.2em] uppercase">Iniciar Expediente</span>
+</div>
+</div>
+<!-- Program 5: Supermax -->
+<div class="group relative bg-surface-container h-full dossier-clip border-l border-t border-outline-variant/20 flex flex-col hover:bg-surface-container-high transition-colors cursor-pointer lg:col-start-2 lg:translate-x-1/2">
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<span class="bg-surface-bright text-on-surface px-3 py-1 font-label text-[10px] font-black tracking-widest uppercase">Nivel 05</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-primary text-sm">star</span>
+</div>
+</div>
+<h3 class="font-headline text-3xl font-bold mb-2 uppercase tracking-tight italic">SUPERMAX</h3>
+<p class="font-body text-secondary text-sm leading-snug mb-6 opacity-75">
+                        Solo para los elegidos. Sesiones dobles. El límite absoluto de lo que la anatomía humana puede soportar sin máquinas.
+                    </p>
+<div class="space-y-4 pt-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg">calendar_today</span>
+<span class="font-label text-xs font-bold tracking-wider">6 DÍAS / SEMANA</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg">psychology</span>
+<span class="font-label text-xs font-bold tracking-wider uppercase">SOBRECARGA ELITE</span>
+</div>
+</div>
+</div>
+<div class="mt-auto bg-surface-container-highest p-4 text-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="font-label text-[10px] font-black tracking-[0.2em] uppercase">Iniciar Expediente</span>
+</div>
+</div>
+</div>
+<!-- Featured Section Asymmetric -->
+<section class="mt-24 mb-16 grid grid-cols-1 md:grid-cols-12 gap-0 border border-outline-variant/20">
+<div class="md:col-span-7 relative h-64 md:h-auto overflow-hidden">
+<img alt="Training Yard" class="w-full h-full object-cover grayscale brightness-50" data-alt="Gritty atmospheric shot of a cold, empty prison gym with pull-up bars and worn concrete, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-yO3wG48XxGk3YFkxdIL9pK_M0hJPBxFeVq2Q0ne0Q1EshYDCvN33_hpi92pIyktCR-2BO86GqCRFvW5zDV0dM40zJYzymryoCs60KI67c8ap-ZwG2k4LM12iJ83wM2srox2HsrvygBaZRJGBlQXtVoNSY50YHDo83Epy-XYL5M1BKKRZPiuBKIh2NPdf648xn3y2YN2alYzKwsJM-BpFecrocRBA-6ytIuvy4QaMlh2wfGDi35KkUlx8tW5FG3nqy9ehflLYdeU"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent"></div>
+</div>
+<div class="md:col-span-5 bg-surface-container p-12 flex flex-col justify-center">
+<span class="font-label text-[10px] tracking-widest text-primary mb-4 block uppercase">Filosofía de Celda</span>
+<h3 class="font-headline text-4xl font-bold italic mb-6 leading-none tracking-tight">"EL CUERPO ES LA ÚNICA MÁQUINA QUE NECESITAS."</h3>
+<p class="font-body text-secondary opacity-70 mb-8 leading-relaxed">
+                    No hay trucos. No hay suplementos mágicos. Solo la gravedad, el tiempo y tu capacidad para resistir el dolor hasta que se convierta en poder.
+                </p>
+<div class="flex items-center gap-4 text-tertiary">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label text-xs font-bold uppercase tracking-widest">Leer el Manifiesto</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-4 bg-[#14140F] z-50 border-t border-[#E5E2DA]/20">
+<button class="flex flex-col items-center justify-center text-[#CBC6B8] opacity-60 hover:bg-[#2A2A25]">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans">HOY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#B8C9D4] bg-[#20201B] rounded-sm py-1 px-4 active:translate-y-0.5">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans">BIBLIOTECA</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#CBC6B8] opacity-60 hover:bg-[#2A2A25]">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-sans text-[10px] font-bold tracking-widest Public Sans">PROGRESO</span>
+</button>
+</nav>
+</body></html>

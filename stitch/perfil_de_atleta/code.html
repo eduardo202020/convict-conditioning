@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;0,800;1,400;1,700&amp;family=Public+Sans:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#3a3934",
+                        "on-secondary-fixed-variant": "#49473c",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#35352f",
+                        "on-primary-fixed": "#201b0e",
+                        "on-primary-fixed-variant": "#4c4636",
+                        "background": "#14140f",
+                        "on-error": "#690005",
+                        "tertiary-container": "#82939e",
+                        "primary-fixed-dim": "#cfc6b0",
+                        "secondary-fixed": "#e7e2d3",
+                        "on-surface": "#e5e2da",
+                        "primary": "#cfc6b0",
+                        "on-primary-container": "#2e291b",
+                        "on-tertiary-container": "#1c2c34",
+                        "outline": "#969086",
+                        "primary-fixed": "#ece2cc",
+                        "on-secondary": "#323126",
+                        "tertiary": "#b8c9d4",
+                        "on-tertiary-fixed-variant": "#394952",
+                        "tertiary-fixed-dim": "#b8c9d4",
+                        "inverse-primary": "#655e4d",
+                        "on-tertiary": "#22323b",
+                        "secondary": "#cbc6b8",
+                        "secondary-container": "#4b493e",
+                        "inverse-on-surface": "#31312b",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cbc6b8",
+                        "tertiary-fixed": "#d4e5f1",
+                        "inverse-surface": "#e5e2da",
+                        "surface-tint": "#cfc6b0",
+                        "surface-dim": "#14140f",
+                        "on-secondary-fixed": "#1d1c13",
+                        "surface-container-high": "#2a2a25",
+                        "on-secondary-container": "#bcb8aa",
+                        "surface-variant": "#35352f",
+                        "primary-container": "#98907d",
+                        "surface-container-lowest": "#0e0e0a",
+                        "on-primary": "#353021",
+                        "surface": "#14140f",
+                        "outline-variant": "#4a463e",
+                        "surface-container": "#20201b",
+                        "surface-container-low": "#1c1c17",
+                        "on-background": "#e5e2da",
+                        "on-tertiary-fixed": "#0d1d26",
+                        "on-surface-variant": "#ccc6ba"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Public Sans"],
+                        "label": ["Public Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Public Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Newsreader', serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-6 h-16 w-full bg-[#14140F] docked full-width top-0 sticky z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#E5E2DA] cursor-pointer">menu</span>
+<h1 class="font-serif text-2xl tracking-tight uppercase Newsreader font-bold text-[#E5E2DA] italic">CONVICT CONDITIONING</h1>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/20">
+<img class="w-full h-full object-cover" data-alt="Gritty black and white portrait of a determined man with short hair and stubble, high contrast industrial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2Pidj9PEuZfiYvLTgH1fLFD5phuIaMHDCVr1LxzIWrjDiYRyWYB8qUBN2VLNBkh7-Hj24HvL2_ouX85893hsJL_pSu6C3ZrveY8G_17vMivLbKJNDiwfzQ5G92siCWMeRPy0wVINc8lXPvIWCqm-JIOrrxZ4MzH2C6uqHhTvIJm8Vi3ZZp4yM2NY8_x6kcSL7XnekRJuYGL51iJ2WuOJeW0mavQmFQ4O5KkCAcxbNquY8JDk_jYsmponhCzXridrZmxiDHlk4hJU"/>
+</div>
+</header>
+<div class="bg-[#20201B] h-px w-full"></div>
+<main class="max-w-2xl mx-auto px-6 py-10 space-y-12">
+<!-- Profile Intro Section -->
+<section class="space-y-2">
+<div class="flex items-center gap-2 text-tertiary uppercase tracking-[0.2em] font-bold text-[10px]">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+<span>Active Operative</span>
+</div>
+<h2 class="text-4xl font-extrabold italic leading-none">THOMAS "SPIKE" MILLER</h2>
+<div class="flex justify-between items-end">
+<p class="text-secondary font-medium tracking-tight opacity-80 uppercase text-sm">Designation: CC-8802-ALPHA</p>
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+<span class="text-[10px] font-bold tracking-widest text-on-surface-variant">SYNCED: OFFLINE ENCRYPTED</span>
+</div>
+</div>
+</section>
+<!-- Practical Training ID Card (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+<!-- Left Panel: Program Status -->
+<div class="md:col-span-2 bg-surface-container p-6 border-l-4 border-primary space-y-6">
+<div class="space-y-1">
+<p class="text-[10px] font-black tracking-[0.3em] text-outline uppercase">Active Program</p>
+<h3 class="text-2xl font-bold tracking-tighter">VETERANO: THE MASTER CLASS</h3>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant opacity-60">ENROLLMENT</p>
+<p class="font-mono text-sm">OCT_12_2023</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant opacity-60">TOTAL_REPS</p>
+<p class="font-mono text-sm">48,290</p>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<div>
+<p class="text-[10px] font-bold text-tertiary">STRENGTH_RANK</p>
+<p class="text-lg font-black italic">HARDENED</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-primary/20">shield</span>
+</div>
+</div>
+<!-- Right Panel: Identification Visual -->
+<div class="bg-surface-container-high relative overflow-hidden flex flex-col items-center justify-center p-6 border border-outline-variant/10">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, #E5E2DA 1px, transparent 0); background-size: 12px 12px;"></div>
+</div>
+<div class="z-10 text-center space-y-4">
+<div class="w-24 h-32 border-2 border-primary/30 p-1">
+<img class="w-full h-full object-cover grayscale contrast-125" data-alt="Monochrome close up of a muscular man's back and shoulders in a gym setting with harsh top-down lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP1igs9N06ymZNUs1Qs2qus7zrQd0Akyj5GwIhQst_nvo6ONwcK-9vnLK0gRduN5B2xErx6xjf3W6MNQJTWWpeUfuxqnoYMq_mLfB2RCrRWpW5ZeLopANFjhqDki1N5w9OXE4yzo8dPGgLpDofEt-qwHwrJo5N6wB5gweMxV_7vP-MKtx8FGtmk718hnP0qHw8zgLrDU-ZYYz8VxpfdYAfg-zuINRHXq9rI_fl0WqPeij52VQqsRn6ZxPu3cSt4uf4R2i32sRrf1w"/>
+</div>
+<p class="text-[9px] font-black tracking-widest text-primary leading-tight">BIOMETRIC_ID<br/>SCAN_VERIFIED</p>
+</div>
+</div>
+</div>
+<!-- The Big Six Summary -->
+<section class="space-y-6">
+<div class="flex items-baseline justify-between">
+<h3 class="text-xl font-bold italic tracking-tight">BIG SIX CURRENT PROGRESSION</h3>
+<div class="h-px flex-grow mx-4 bg-outline-variant/30"></div>
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Manual Log</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<!-- Pushup -->
+<div class="bg-surface-container p-4 flex flex-col justify-between aspect-square border-b-2 border-transparent hover:border-tertiary transition-colors group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:text-tertiary transition-colors">fitness_center</span>
+<span class="text-[10px] font-bold text-tertiary">L_07</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-tighter">Pushups</p>
+<p class="text-lg font-bold leading-none">UNEVEN</p>
+</div>
+</div>
+<!-- Squat -->
+<div class="bg-surface-container p-4 flex flex-col justify-between aspect-square border-b-2 border-transparent hover:border-tertiary transition-colors group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:text-tertiary transition-colors">settings_accessibility</span>
+<span class="text-[10px] font-bold text-tertiary">L_06</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-tighter">Squats</p>
+<p class="text-lg font-bold leading-none">CLOSE</p>
+</div>
+</div>
+<!-- Pullup -->
+<div class="bg-surface-container p-4 flex flex-col justify-between aspect-square border-b-2 border-transparent hover:border-tertiary transition-colors group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:text-tertiary transition-colors">reorder</span>
+<span class="text-[10px] font-bold text-tertiary">L_04</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-tighter">Pullups</p>
+<p class="text-lg font-bold leading-none">HALVES</p>
+</div>
+</div>
+<!-- Leg Raise -->
+<div class="bg-surface-container p-4 flex flex-col justify-between aspect-square border-b-2 border-transparent hover:border-tertiary transition-colors group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:text-tertiary transition-colors">vertical_align_top</span>
+<span class="text-[10px] font-bold text-tertiary">L_05</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-tighter">Leg Raises</p>
+<p class="text-lg font-bold leading-none">FLAT_STRAIGHT</p>
+</div>
+</div>
+<!-- Bridge -->
+<div class="bg-surface-container p-4 flex flex-col justify-between aspect-square border-b-2 border-transparent hover:border-tertiary transition-colors group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:text-tertiary transition-colors">architecture</span>
+<span class="text-[10px] font-bold text-tertiary">L_03</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-tighter">Bridges</p>
+<p class="text-lg font-bold leading-none">ANGLED</p>
+</div>
+</div>
+<!-- HSPU -->
+<div class="bg-surface-container p-4 flex flex-col justify-between aspect-square border-b-2 border-transparent hover:border-tertiary transition-colors group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:text-tertiary transition-colors">upload</span>
+<span class="text-[10px] font-bold text-tertiary">L_02</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-tighter">HS Pushups</p>
+<p class="text-lg font-bold leading-none">CROW_STAND</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Metadata -->
+<section class="bg-surface-container-low p-6 space-y-4">
+<h4 class="text-[10px] font-black tracking-widest text-secondary border-b border-outline-variant/10 pb-2">SYSTEM_DIAGNOSTICS</h4>
+<div class="space-y-2 font-mono text-[11px] text-on-surface-variant/70">
+<div class="flex justify-between">
+<span>OS_VERSION</span>
+<span class="text-tertiary">B_4.2.0_STABLE</span>
+</div>
+<div class="flex justify-between">
+<span>LOCAL_STORAGE</span>
+<span class="text-on-surface">1.2MB / 50MB</span>
+</div>
+<div class="flex justify-between">
+<span>LAST_SYNC_NODE</span>
+<span class="text-on-surface">NORTH_ATL_09</span>
+</div>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary font-bold tracking-widest text-[10px] uppercase rounded-sm active:scale-98 transition-transform">
+                Purge Local Cache &amp; Logout
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-4 bg-[#14140F] border-t border-[#E5E2DA]/20 z-50">
+<a class="flex flex-col items-center justify-center text-[#CBC6B8] opacity-60 hover:bg-[#2A2A25] transition-all" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-sans text-[10px] font-bold tracking-widest uppercase">HOY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#CBC6B8] opacity-60 hover:bg-[#2A2A25] transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-sans text-[10px] font-bold tracking-widest uppercase">PROGRESO</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#B8C9D4] bg-[#20201B] rounded-sm py-1 px-4 translate-y-0.5" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">library_books</span>
+<span class="font-sans text-[10px] font-bold tracking-widest uppercase">BIBLIOTECA</span>
+</a>
+</nav>
+</body></html>
