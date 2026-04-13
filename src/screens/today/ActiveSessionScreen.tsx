@@ -53,7 +53,10 @@ export function ActiveSessionScreen({ navigation }: Props) {
     setClosing(true);
     try {
       const summary = await finishSession(session.sessionId);
-      navigation.navigate('SessionSummary', { sessionId: summary.sessionId });
+      navigation.navigate('SessionSummary', {
+        sessionId: summary.sessionId,
+        promotedMovements: summary.autoProgressions?.map((item) => item.movementName) ?? [],
+      });
     } finally {
       setClosing(false);
     }
@@ -101,15 +104,20 @@ export function ActiveSessionScreen({ navigation }: Props) {
               <AppButton
                 label={busyExerciseId === exercise.sessionExerciseId ? 'REGISTRANDO...' : 'REGISTRAR SERIE'}
                 onPress={() => handleLogSet(exercise.sessionExerciseId)}
+                disabled={busyExerciseId !== null || closing}
               />
-              <AppButton label="VER GUIA" onPress={() => {}} variant="ghost" />
+              <AppButton label="VER GUIA" onPress={() => {}} variant="ghost" disabled={closing} />
             </View>
           </View>
         ))}
       </View>
 
       <View style={styles.footer}>
-        <AppButton label={closing ? 'CERRANDO...' : 'CERRAR SESION'} onPress={handleFinish} />
+        <AppButton
+          label={closing ? 'CERRANDO...' : 'CERRAR SESION'}
+          onPress={handleFinish}
+          disabled={closing || loading || !session}
+        />
       </View>
     </Screen>
   );

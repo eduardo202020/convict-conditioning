@@ -1,6 +1,7 @@
 import type { SQLiteDatabase } from 'expo-sqlite';
 
 import { ensurePrebuiltDatabase, openDb } from '../../data/cellstrength_db/ts/initDb';
+import { applyAutomaticProgressionForSession, type ProgressionResult } from './progression';
 import { getActiveProgramCode } from './user';
 
 export type SessionExerciseState = {
@@ -34,6 +35,7 @@ export type SessionSummary = {
   totalSets: number;
   totalExercises: number;
   completedExercises: number;
+  autoProgressions?: ProgressionResult[];
 };
 
 const DEFAULT_PROGRAM_CODE = 'veterano';
@@ -359,6 +361,17 @@ export async function logSetForExercise(sessionExerciseId: number): Promise<Acti
 
 export async function finishSession(sessionId: number): Promise<SessionSummary> {
   const db = await getDb();
+  const existing = await db.getFirstAsync<{ finishedAt: string | null }>(
+    `
+      SELECT finished_at AS finishedAt
+      FROM session
+      WHERE id = ?
+      LIMIT 1
+    `,
+    sessionId,
+  );
+
+  const autoProgressions = existing?.finishedAt ? [] : await applyAutomaticProgressionForSession(sessionId);
 
   await db.runAsync(
     `
@@ -369,7 +382,11 @@ export async function finishSession(sessionId: number): Promise<SessionSummary> 
     [new Date().toISOString(), sessionId],
   );
 
-  return getSessionSummary(sessionId);
+  const summary = await getSessionSummary(sessionId);
+  return {
+    ...summary,
+    autoProgressions,
+  };
 }
 
 export async function getSessionSummary(sessionId: number): Promise<SessionSummary> {

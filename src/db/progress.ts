@@ -24,6 +24,8 @@ export type ProgressMovementDetail = {
   nextStepGoal: string | null;
   masterStepName: string | null;
   completionRatio: number;
+  latestProgressionAt: string | null;
+  latestProgressionReason: string | null;
 };
 
 export type RecentSessionSummary = {
@@ -122,6 +124,8 @@ export async function getMovementProgressDetail(slug: string): Promise<ProgressM
     nextStepName: string | null;
     nextStepGoal: string | null;
     masterStepName: string | null;
+    latestProgressionAt: string | null;
+    latestProgressionReason: string | null;
   }>(
     `
       SELECT
@@ -135,6 +139,9 @@ export async function getMovementProgressDetail(slug: string): Promise<ProgressM
         next_step.name AS nextStepName,
         next_target.raw_target AS nextStepGoal,
         master_step.name AS masterStepName
+        ,
+        latest_event.created_at AS latestProgressionAt,
+        latest_event.reason AS latestProgressionReason
       FROM movement m
       LEFT JOIN user_movement_level uml ON uml.movement_id = m.id
       LEFT JOIN step current_step ON current_step.id = uml.current_step_id
@@ -158,6 +165,14 @@ export async function getMovementProgressDetail(slug: string): Promise<ProgressM
       LEFT JOIN step master_step
         ON master_step.movement_id = m.id
        AND master_step.is_master_step = 1
+      LEFT JOIN progression_event latest_event
+        ON latest_event.id = (
+          SELECT pe.id
+          FROM progression_event pe
+          WHERE pe.movement_id = m.id
+          ORDER BY pe.created_at DESC, pe.id DESC
+          LIMIT 1
+        )
       WHERE m.slug = ?
       LIMIT 1
     `,
@@ -178,6 +193,8 @@ export async function getMovementProgressDetail(slug: string): Promise<ProgressM
     nextStepGoal: detail.nextStepGoal,
     masterStepName: detail.masterStepName,
     completionRatio: detail.currentStepNumber / 10,
+    latestProgressionAt: detail.latestProgressionAt,
+    latestProgressionReason: detail.latestProgressionReason,
   };
 }
 

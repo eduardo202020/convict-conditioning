@@ -13,6 +13,7 @@ type Props = NativeStackScreenProps<HoyStackParamList, 'SessionSummary'>;
 export function SessionSummaryScreen({ route }: Props) {
   const [summary, setSummary] = useState<SessionSummaryData | null>(null);
   const [loading, setLoading] = useState(true);
+  const promotedMovements = route.params.promotedMovements ?? [];
 
   useEffect(() => {
     let mounted = true;
@@ -63,6 +64,14 @@ export function SessionSummaryScreen({ route }: Props) {
           <Text style={styles.metricLabel}>Estado</Text>
           <Text style={styles.metricNote}>
             {summary?.finishedAt ? 'Sesion cerrada y guardada en el historial local.' : 'Sesion aun abierta.'}
+          </Text>
+        </View>
+        <View style={styles.metric}>
+          <Text style={styles.metricLabel}>Progresion automatica</Text>
+          <Text style={styles.metricNote}>
+            {promotedMovements.length
+              ? `Avance registrado en: ${promotedMovements.join(', ')}.`
+              : 'No hubo avance automatico en esta sesion.'}
           </Text>
         </View>
       </View>
