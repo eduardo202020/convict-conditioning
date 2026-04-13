@@ -1,4 +1,4 @@
-import * as FileSystem from "expo-file-system";
+import * as FileSystem from "expo-file-system/legacy";
 import { Asset } from "expo-asset";
 import * as SQLite from "expo-sqlite";
 
@@ -27,7 +27,7 @@ export async function ensurePrebuiltDatabase() {
 
   const dbInfo = await FileSystem.getInfoAsync(dbPath);
   if (!dbInfo.exists) {
-    const asset = Asset.fromModule(require("../../assets/db/cellstrength.sqlite"));
+    const asset = Asset.fromModule(require("../cellstrength.sqlite"));
     await asset.downloadAsync();
     if (!asset.localUri) throw new Error("No se pudo obtener localUri del asset");
     await FileSystem.copyAsync({ from: asset.localUri, to: dbPath });
@@ -35,11 +35,6 @@ export async function ensurePrebuiltDatabase() {
 }
 
 export async function openDb() {
-  // Para expo-sqlite moderno (SDK 50+), puedes usar openDatabaseAsync:
-  // const db = await SQLite.openDatabaseAsync(DB_NAME);
-  // return db;
-
-  // Compat:
-  const db = SQLite.openDatabase(DB_NAME);
+  const db = await SQLite.openDatabaseAsync(DB_NAME);
   return db;
 }

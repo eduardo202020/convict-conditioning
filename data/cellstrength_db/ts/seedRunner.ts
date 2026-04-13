@@ -1,5 +1,5 @@
 import * as SQLite from "expo-sqlite";
-import seed from "./seed-data.json";
+import seed from "../seed-data.json";
 
 /**
  * Opción B: Sembrar desde JSON (si NO quieres DB prebuilt)
